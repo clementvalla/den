@@ -116,6 +116,7 @@ ul {
   border-left: 1px solid #a9b0ac;
   border-right: 1px solid #e7e9e8;
   border-bottom: 1px solid #e7e9e8;
+  border-radius: 2px;
   color: #434a46;
 }
 .menu .slide-control {
