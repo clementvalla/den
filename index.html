@@ -37,7 +37,7 @@
 			</li>
 			<li id="spread" class="spread">
 				<label>Spread</label>
-				<input type="hidden" name="spread" id="spread" value="50"/>
+				<input type="hidden" name="spread-value" id="spread" value="50"/>
 			</li>
 		</ul>
 		<div id="spread-slider" class="slider"></div>
@@ -64,10 +64,10 @@
 			max: 100,
 			step: 10,
 			slide: function( event, ui ) {
-				$( "#spread" ).val( "$" + ui.value );
+				$( "#spread-value" ).val( "$" + ui.value );
 			}
 		});
-		$( "#spread" ).val( $( "#spread-slider" ).slider( "value" ) );
+		$( "#spread-value" ).val( $( "#spread-slider" ).slider( "value" ) );
 	});
 	</script>
 	<script>
