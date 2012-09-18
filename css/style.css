@@ -78,6 +78,9 @@ td { vertical-align: top; }
    Grey Colors: http://0to255.com/97a09b
    ========================================================================== */
 header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
     border-bottom: 1px solid #dee1df;
     background: #f0f1f0;
 }
@@ -101,6 +104,7 @@ ul {
   font-size: 14px;
 }
 .menu label {
+  cursor: default;
   color: #7c8881;
 }
 .menu li input {
