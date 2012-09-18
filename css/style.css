@@ -99,6 +99,7 @@ ul {
   padding: 10px 15px;
 }
 .menu li {
+  position: relative;
   display: inline-block;
   padding: 0 15px;
   font-size: 14px;
@@ -115,6 +116,11 @@ ul {
   border-right: 1px solid #e7e9e8;
   border-bottom: 1px solid #e7e9e8;
   color: #434a46;
+}
+.menu .slider {
+  position: absolute;
+  top: 1px;
+  left: 1px;
 }
 
 
