@@ -21,7 +21,7 @@ function draw() {
 	//var height = canvas.height;
 
 	//update the spread
-	spread = parseInt($("input#spread").val());
+	spread = parseInt($("input#spread-value").val());
 	//if (!spread) spread = 75;
 	spread = (spread > 100) ? 100 : spread;
 	spread = (spread <= 0) ? 0 : spread;

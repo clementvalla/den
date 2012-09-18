@@ -37,7 +37,7 @@
 			</li>
 			<li id="spread" class="spread">
 				<label>Spread</label>
-				<input type="hidden" name="spread-value" id="spread" value="50"/>
+				<input type="hidden" name="spread" id="spread-value" value="50"/>
 			</li>
 		</ul>
 		<div id="spread-slider" class="slider"></div>
@@ -49,6 +49,10 @@
 	<footer>
 
 	</footer>
+
+	<!-- Locally load jQuery files - remove on launch -->
+	<script type="text/javascript" src="js/libs/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery-ui-1.8.23.min.js"></script>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
@@ -64,7 +68,7 @@
 			max: 100,
 			step: 10,
 			slide: function( event, ui ) {
-				$( "#spread-value" ).val( "$" + ui.value );
+				$( "#spread-value" ).val( ui.value );
 			}
 		});
 		$( "#spread-value" ).val( $( "#spread-slider" ).slider( "value" ) );
