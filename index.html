@@ -21,12 +21,20 @@
 	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 	<header>
-		<div id="menu">
-				<div id="circle1">First Circle: <input type="text" name="firstcircle" id="firstcircle" value="Nobel Prize"/></div>
-				<div id="circle3">Second Circle: <input type="text" name="secondcircle" id="secondcircle" value="Grammy Award"/></div>
-				<div id="overlap">Overlap: <input type="text" name="overlap" id="overlap" value="Obama"/></div>
-				<div id="spread">Spread: <input type="text" name="spread" id="spread" value="50"/></div>
-		</div>
+		<ul id="menu" class="menu">
+			<li id="circle1" class="circle">
+				<label>Left</label>
+				<input type="text" name="firstcircle" id="firstcircle" value="Nobel Prize"/></li>
+			<li id="circle3" class="circle">
+				<label>Right</label>
+				<input type="text" name="secondcircle" id="secondcircle" value="Grammy Award"/></li>
+			<li id="overlap" class="overlap">
+				<label>Overlap</label>
+				<input type="text" name="overlap" id="overlap" value="Obama"/></li>
+			<li id="spread" class="spread">
+				<label>Spread</label>
+				<input type="text" name="spread" id="spread" value="50"/></li>
+		</ul>
 	</header>
 
 	<div role="main">
