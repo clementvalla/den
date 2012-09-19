@@ -143,11 +143,12 @@ ul.menu {
     color: #000;
     text-decoration: none;
   }
-  .menu .link a:hover {
+  .menu .link a:hover, .menu .link a.active {
     background: #000;
     text-decoration: none;
     color: #fff;
   }
+
 .menu .field {
   display: inline-block;
   width: 220px;
