@@ -23,24 +23,46 @@
 
 	<header>
 		<ul id="menu" class="menu">
-			<li id="circle1" class="circle">
-				<label>Left</label>
-				<input type="text" name="firstcircle" id="firstcircle" value="Nobel Prize"/>
+			<li class="col-1">
+				<div class="link"><a href="#">The Venn Diagram Generator</a></div>
+				<div class="link pull-left"><a href="#">About</a></div>
+				<div class="link pull-left"><a href="#">Library</a></div>
+				<div class="link pull-left"><a href="#">Share</a></div>
 			</li>
-			<li id="circle3" class="circle">
-				<label>Right</label>
-				<input type="text" name="secondcircle" id="secondcircle" value="Grammy Award"/>
-			</li>
-			<li id="overlap" class="overlap">
-				<label>Overlap</label>
-				<input type="text" name="overlap" id="overlap" value="Obama"/>
-			</li>
-			<li id="spread" class="spread">
-				<label>Spread</label>
-				<div class="slide-control">
-					<div id="spread-slider" class="slider"></div>
+			<li class="col-2">
+				<div id="circle1" class="field pull-left">
+					<label>Left</label>
+					<input type="text" name="firstcircle" id="firstcircle" value="Nobel Prize"/>
 				</div>
-				<input type="hidden" name="spread" id="spread-value" value="50"/>
+				<div id="circle3" class="field">
+					<label>Right</label>
+					<input type="text" name="secondcircle" id="secondcircle" value="Grammy Award"/>
+				</div>
+				<div id="overlap" class="field pull-left">
+					<label>Center</label>
+					<input type="text" name="overlap" id="overlap" value="Obama"/>
+				</div>
+				<div id="spread" class="field">
+					<label>Spread</label>
+					<div class="slide-control">
+						<div id="spread-slider" class="slider"></div>
+					</div>
+					<input type="hidden" name="spread" id="spread-value" value="50"/>
+				</div>
+			</li>
+			<li class="col-3">
+				<ul class="colors">
+					<li id="select-1"><span class="a"></span><span class="b"></span></li>
+					<li id="select-2"><span class="a"></span><span class="b"></span></li>
+					<li id="select-3"><span class="a"></span><span class="b"></span></li>
+					<li id="select-4"><span class="a"></span><span class="b"></span></li>
+					<li id="select-5"><span class="a"></span><span class="b"></span></li>
+					<li id="select-6"><span class="a"></span><span class="b"></span></li>
+					<li id="select-7"><span class="a"></span><span class="b"></span></li>
+					<li id="select-8"><span class="a"></span><span class="b"></span></li>
+					<li id="select-9"><span class="a"></span><span class="b"></span></li>
+					<li id="select-10"><span class="a"></span><span class="b"></span></li>
+				</ul>
 			</li>
 		</ul>
 	</header>
