@@ -33,14 +33,14 @@ function draw() {
 	ctx.beginPath();
 	ctx.arc(canvas.width/2-offset,canvas.height/2, radius, 0, Math.PI*2, true);
 	ctx.closePath();
-	ctx.fillStyle = 'rgba(224,62,81,0.3)';
+	ctx.fillStyle = 'rgba(64,242,255,0.5)';
 	ctx.fill();
 
 	//circle 2
 	ctx.beginPath();
 	ctx.arc(canvas.width/2+offset,canvas.height/2, radius, 0, Math.PI*2, true);
 	ctx.closePath();
-	ctx.fillStyle = 'rgba(89,194,253,0.3)';
+	ctx.fillStyle = 'rgba(254,17,149,0.5)';
 	ctx.fill();
 
 	var font_size = radius/10;
