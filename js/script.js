@@ -47,23 +47,33 @@ function draw() {
 
 	ctx.font = "bold "+ font_size+"px sans-serif";
 	ctx.fillStyle = 'rgba(60,60,60,0.9)';
-	ctx.textAlign = "center";
+	//ctx.textAlign = "center";
 
 	var remainder = radius - offset;
 	
 	//text for circle 1
 	var src1 = $("input#firstcircle").val();
-	ctx.fillText(src1, canvas.width/2-offset-remainder, canvas.height/2);
+	drawMultiline(src1,canvas.width/2-offset-remainder,canvas.height/2,font_size);
 
 	//text for circle 2
 	var src2 = $("input#secondcircle").val();
-	ctx.fillText(src2, canvas.width/2+offset+remainder, canvas.height/2);
+	drawMultiline(src2,canvas.width/2+offset+remainder,canvas.height/2,font_size);
 
 	//text for overlap
 	var src3 = $("input#overlap").val();
-	ctx.fillText(src3, canvas.width/2, canvas.height/2);
+	drawMultiline(src3,canvas.width/2,canvas.height/2,font_size);
 }
 
+function drawMultiline(t,x,y,s){
+	// split the text
+	var src_ar = t.split(" ");
+	//draw it across multiple lines
+	var h = y - Math.floor(src_ar.length/2)*s;
+	for (var i = 0; i < src_ar.length; i++) {
+		ctx.fillText(src_ar[i], x - s*2, h);
+		h += s;
+	};
+}
 $(document).ready(function() {
 	setup();
 });
