@@ -1,10 +1,45 @@
-DIAGRAM
-done - make canvas resize to window height
-done - resize type
+INDEX.PHP
+========================================================================
+bottom menu
+------------
+- add colors to color selectors
+- pick/create 8 color combos
 
-UI
-done - make ui elements float on top of canvas in CSS
-- add distance/spread slider
-done - spread/distance slider should rear opposite : 100(%) is full overlap, 0(%) is no overlap
-- click on text to change it
-- click on circle to change color
+top menu
+------------
+
+
+canvas
+------------
+- if center text is only one word, the arrow starts in the wrong place
+
+
+
+
+save-venn.php
+========================================================================
+- make thumbnails and standard size images
+- then automatically redirect to dingle page with share links etc
+
+
+
+
+library.php
+========================================================================
+- pagination
+- pull thumbnails
+- lightbox?
+- link to a single page
+
+
+
+single-venn.php
+========================================================================
+- create this page
+- add twitter, facebook, tumblr, email share buttons
+
+
+
+ICON
+========================================================================
+- we need an icon design!!!!!
