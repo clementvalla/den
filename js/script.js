@@ -17,14 +17,17 @@ function setup() {
 
 function draw() {
 	//set the canvas size
+	//maintain an aspect ration of 3:2
 	canvas.width = canvas.width;
-	canvas.width = window.innerWidth - 40;
-	canvas.height = window.innerHeight - 60;
-	radius = Math.min(canvas.width * 0.4, canvas.height * 0.4);
+	canvas.width = window.innerWidth-10;
+	canvas.height = window.innerHeight-10;
+	var f = Math.min(canvas.width * 2, canvas.height * 3);
+	canvas.width = f/2;
+	canvas.height = f/3;
+	canvas.style.marginLeft = (window.innerWidth-canvas.width)/2 + "px";
+	radius = canvas.width * 0.22;
 
 	//console.log("radius: "+radius);
-	//var wid = canvas.width;
-	//var height = canvas.height;
 	//update the spread
 	spread = parseInt($("input#spread-value").val());
 	//if (!spread) spread = 75;

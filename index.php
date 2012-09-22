@@ -52,7 +52,7 @@
 			</li>
 		</ul>
 
-	<div role="main">
+	<div id="main" role="main">
 		<canvas width="800" height="600" id="mcanvas"></canvas>
 	</div>
 	<footer>
