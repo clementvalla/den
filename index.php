@@ -3,18 +3,16 @@
 <?php include('includes/head.php'); ?>
 
 	
-		<ul class="menu" id="share-menu">
-			<li class="menu">
-			<div class="link pull-left">
-				<form action="save-venn.php" method="post" id="frm"/>
-					<input type="hidden" name="data" id="data" />
-					<input type="hidden" name="title" id="title" />
-						<!-- <input type="submit" value="Submit"> -->
-				</form>
-				<a id="share" href="#">Share</a>
-			</div>
-			</li>
-		</ul>
+		
+		<div id="share" class="link pull-left">
+			<form action="venn-save.php" method="post" id="frm"/>
+				<input type="hidden" name="data" id="data" />
+				<input type="hidden" name="title" id="title" />
+					<!-- <input type="submit" value="Submit"> -->
+			</form>
+			<a href="#">Share</a>
+		</div>
+
 		<ul id="venn-menu" class="menu">		
 			<li class="row-1">
 				<div id="circle1" class="field pull-left">

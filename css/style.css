@@ -1,3 +1,4 @@
+
 /* @group boilerplate */
 
 /* =============================================================================
@@ -133,6 +134,8 @@ td { vertical-align: top; }
 body {
   margin: 0px;
   padding: 0px;
+  width: 100%;
+  position: relative;
 }
 
 .pull-left {
@@ -145,8 +148,45 @@ body {
 /* @group top nav */
 div#navigation{
   position: absolute;
+  left: 15px;
+  top:  15px;
+  width: 250px;
+  font-size: 16px;
+  line-height: 26px;
+}
+div#navigation .home{
+  width: 100%;
+  font-size: 30px;
+  text-transform: capitalize;
+  line-height: 38px;
+  margin-bottom: 10px;
+}
+div#navigation .home a{
+  border-bottom: solid 2px black;
+}
+div#navigation .home a:hover{
+  background-color: yellow;
+}
+div#navigation .link, #share {
+  display: inline-block;
+  width: 100%;
+  text-transform: uppercase;
+}
+div#navigation a, #share a{
+    font-weight: bold;
+    color: #000;
+  text-decoration: none;
+}
+div#navigation a:hover, div#share a:hover{
+  border-bottom: solid 2px black;
 }
 
+div#share{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 4em;
+}
 /* @end */
 
 /* @group venn-menu */
@@ -157,19 +197,16 @@ ul#venn-menu{
   width: 100%;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 ul#venn-menu li{
+  text-decoration: none;
   margin: auto;
   width: 900px;
   height: 40px;
 }
-ul#share-menu{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 120px;
-}
+
 
 ul#venn-menu .field {
   display: inline-block;
@@ -178,7 +215,6 @@ ul#venn-menu .field {
   margin-bottom: 4px;
   padding: 5px 8px;
   text-align: left;
-  border: 2px solid #000;
 }
 ul#venn-menu .field.pull-left {
       margin: 0 4px 4px 0;
@@ -208,7 +244,6 @@ ul#venn-menu ul.colors {
   margin-top: 8px;
   margin-left: 422px;
   padding: 5px 8px;
-  border: 2px solid #000;
 }
 ul#venn-menu ul.colors li {
   box-sizing: border-box;
@@ -282,57 +317,10 @@ ul#venn-menu .slide-control {
   border-radius: 0;
 }
 
-/* @end */
-
-
-
-ul.menu {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 10px 15px;
-  text-align: center;
-  list-style: none;
-}
-
 .menu li {
   vertical-align: top;
+  list-style-type: none;
 }
-.menu li.col-1, .menu li.col-2, .menu li.col-3 {
-  display: inline-block;
-  width: 280px;
-  font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif;
-}
-  .menu li.col-2 {
-    width: 484px;
-  }
-.menu .link {
-  display: inline-block;
-  margin-right: 4px;
-  border: 2px solid #000;
-  text-transform: uppercase;
-}
-  .menu .link:first-child {
-    margin-bottom: 4px;
-  }
-  .menu .link:last-child {
-    width: 116px;
-    margin-right: 0;
-    text-align: center;
-  }
-.menu .link a{
-    display: block;
-    padding: 5px 8px;
-    font-weight: bold;
-    color: #000;
-    text-decoration: none;
-  }
-  .menu .link a:hover, .menu .link a.active {
-    background: #000;
-    text-decoration: none;
-    color: #fff;
-  }
+/* @end */
 
 /* @end */

@@ -24,8 +24,8 @@
 
 <header>
 	<div id="navigation" class="menu" role="navigation">
-		<div class="link"><a class="active" href="index.php">The Venn Diagram Generator</a></div>
-		<div class="link pull-left"><a href="about.php">About</a></div>
-		<div class="link pull-left"><a href="library.php">Library</a></div>
+		<div class="home"><a class="active" href="index.php">The Venn Diagram Generator</a></div>
+		<div class="link"><a href="venn-about.php">About</a></div>
+		<div class="link"><a href="venn-library.php">Library</a></div>
 	</div>
 </header>

@@ -16,7 +16,7 @@ canvas
 
 
 
-save-venn.php
+venn-save.php
 ========================================================================
 - make thumbnails and standard size images
 - then automatically redirect to dingle page with share links etc
@@ -24,7 +24,7 @@ save-venn.php
 
 
 
-library.php
+venn-library.php
 ========================================================================
 - pagination
 - pull thumbnails
@@ -33,7 +33,7 @@ library.php
 
 
 
-single-venn.php
+venn-single.php
 ========================================================================
 - create this page
 - add twitter, facebook, tumblr, email share buttons
