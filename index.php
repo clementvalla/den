@@ -19,15 +19,14 @@
 					<label>Left</label>
 					<input type="text" name="firstcircle" id="firstcircle" value="Nobel Peace Prize Winners"/>
 				</div>
-				<div id="circle3" class="field pull-left">
-					<label>Right</label>
-					<input type="text" name="secondcircle" id="secondcircle" value="Grammy Award Winners"/>
-				</div>
 				<div id="overlap" class="field pull-left">
 					<label>Center</label>
 					<input type="text" name="overlap" id="overlap" value="Barak Obama"/>
 				</div>
-				
+				<div id="circle3" class="field pull-left">
+					<label>Right</label>
+					<input type="text" name="secondcircle" id="secondcircle" value="Grammy Award Winners"/>
+				</div>			
 			</li>
 			<li class="row-2">
 				<div id="spread" class="field pull-left">
