@@ -108,7 +108,7 @@ function draw() {
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
 	//if the overlap is too small, the text shoudl move up and an arrow should be drawn
-	if (textw > remainder) {
+	if (textw > remainder+30) {
 		//draw the multiline text
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2 - radius + font_size, font_size);
 		//draw the line
