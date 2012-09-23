@@ -1,6 +1,6 @@
 <?php include 'includes/head.php';?>
 <?php
-$dir = "diagrams";
+$dir = "diagrams_thumb/diagrams";
 $good_ext = array( ".png");
 $files = array();
 
@@ -20,7 +20,7 @@ if ( $handle = opendir( $dir ) ) {
 
 	//loop through the directory
 	foreach($files as $file) {
-		echo '<img src="'.$dir.'/'.$file.'" width=400/>';
+		echo '<a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a>';
 	}
 }
 else {

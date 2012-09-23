@@ -36,9 +36,15 @@ if (!file_put_contents($pngFile, base64_decode($uri))){?>
 <?php 
 } else {
 ?>
-	<?php include('includes/head.php'); ?>
-		<div id="diagramn">
-			<img src="<?php echo $pngFile ?>" />
-		</div>
-	<?php include('includes/foot.php'); ?>
+	<?php 
+		//create the thumbnail
+		require_once 'includes/phpthumb/ThumbLib.inc.php';
+		$thumb = PhpThumbFactory::create($pngFile);
+		$thumb->resize(400, 400)->save('diagrams_thumb/'.$pngFile);
+
+	?>
+	<?php include 'includes/head.php';?>
+	<?php $venn = $pngFile;?>
+	<?php include 'includes/venn-single-display.php'; ?>
+	<?php include 'includes/foot.php';?>
 <?php } ?>
