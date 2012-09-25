@@ -5,6 +5,7 @@ var radius = 150;
 var color1 = "rgb(255,255,40)";
 var color2 = "rgb(70,175,220)";
 var color3 = "rgb(70,175,34)";
+var is_mobile = false;
 
 function setup() {
 	//set the canvas
@@ -13,18 +14,25 @@ function setup() {
 
 	//set the interval
 	interval = setInterval(draw, 50);
+
+	// if (Modernizr.touch) {
+	// 	// bind to touchstart, touchmove, etc and watch `event.streamId`
+		
+	// } else {
+	// 	// bind to normal click, mousemove, etc
+	// }
 }
 
 function draw() {
 	//set the canvas size
 	//maintain an aspect ration of 3:2
 	canvas.width = canvas.width;
-	canvas.width = window.innerWidth-10;
-	canvas.height = window.innerHeight-10;
+	canvas.width = window.innerWidth - 10;
+	canvas.height = window.innerHeight - 10;
 	var f = Math.min(canvas.width * 2, canvas.height * 3);
-	canvas.width = f/2;
-	canvas.height = f/3;
-	canvas.style.marginLeft = (window.innerWidth-canvas.width)/2 + "px";
+	canvas.width = f / 2;
+	canvas.height = f / 3;
+	canvas.style.marginLeft = (window.innerWidth - canvas.width) / 2 + "px";
 	radius = canvas.width * 0.22;
 
 	//console.log("radius: "+radius);
@@ -108,7 +116,7 @@ function draw() {
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
 	//if the overlap is too small, the text shoudl move up and an arrow should be drawn
-	if (textw > remainder+30) {
+	if (textw > remainder + 30) {
 		//draw the multiline text
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2 - radius + font_size, font_size);
 		//draw the line
@@ -177,7 +185,7 @@ $(document).ready(function() {
 		$("#data").val(canvasd);
 
 		//prepare the title
-		$("#title").val($("input#overlap").val().replace(" ","_"));
+		$("#title").val($("input#overlap").val().replace(" ", "_"));
 
 		//submit
 		$("#frm").trigger('submit');
