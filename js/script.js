@@ -181,6 +181,12 @@ $(document).ready(function() {
 		$(this).find('.b').css('background',colors[index][1]);
 	});
 
+	//show and hide menu on mobile
+	$('#toggle-menu').click(function() {
+		$('.menu-wrapper').toggleClass('show');
+		console.log('click');
+	});
+
 	//bind the share button
 	$("#share").click(function() {
 		//get the canvas
