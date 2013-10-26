@@ -1,5 +1,5 @@
 <?php include 'includes/head.php';?>
-<div class="about">
+<div id="content" class="about">
        <h1>About Us</h1>
        <p>Venn diagrams or set diagrams are diagrams that show all possible 
                logical relations between a finite collection of sets (aggregation 

@@ -1,9 +1,6 @@
-
-/* @group boilerplate */
-
 /* =============================================================================
-   HTML5 Boilerplate CSS: h5bp.com/css
-   ========================================================================== */
+HTML5 Boilerplate CSS: h5bp.com/css
+========================================================================== */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
@@ -71,35 +68,13 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
-
-
-
-
-
-
-
-/* =============================================================================
-   Media Queries
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
 /* =============================================================================
    Non-Semantic Helper Classes
    ========================================================================== */
 
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
-.ir br { display: none; }
-.hidden { display: none !important; visibility: hidden; }
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-.invisible { visibility: hidden; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
-
 
 /* =============================================================================
    Print Styles
@@ -122,203 +97,193 @@ td { vertical-align: top; }
 
 /* @end */
 
-
-
-
-/* @group venn styles */
-
 /* ===== Primary Styles ========================================================
    Author: Jason Huff & Clement Valla
-   Grey Colors: http://0to255.com/97a09b
    ========================================================================== */
 body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  position: relative;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    position: relative;
 }
 
 .pull-left {
-  float: left;
+    float: left;
 }
 .pull-right {
-  float: right;
+    float: right;
 }
 
-/* @group top nav */
-div#navigation{
-  position: absolute;
-  left: 15px;
-  top:  15px;
-  width: 250px;
-  font-size: 16px;
-  line-height: 26px;
+/* @group main navigation */
+#navigation{
+    position: absolute;
+    left: 15px;
+    top:  15px;
+    width: 250px;
+    font-size: 16px;
+    line-height: 26px;
 }
-div#navigation .home{
-  width: 100%;
-  font-size: 30px;
-  text-transform: capitalize;
-  line-height: 38px;
-  margin-bottom: 10px;
-}
-div#navigation .home a{
-  border-bottom: solid 2px black;
-}
-div#navigation .home a:hover{
-  background-color: yellow;
-}
-div#navigation .link, #share {
-  display: inline-block;
-  width: 100%;
-  text-transform: uppercase;
-}
-div#navigation a, #share a{
-    font-weight: bold;
-    color: #000;
-  text-decoration: none;
-}
-div#navigation a:hover, div#share a:hover{
-  border-bottom: solid 2px black;
-}
+    #navigation .home{
+        width: 100%;
+        font-size: 30px;
+        text-transform: capitalize;
+        line-height: 38px;
+        margin-bottom: 10px;
+    }
+    #navigation .home a{
+        border-bottom: solid 2px black;
+    }
+    #navigation .home a:hover{
+        background-color: yellow;
+    }
+    #navigation .link, #share {
+        display: inline-block;
+        width: 100%;
+        text-transform: uppercase;
+    }
+    #navigation a, #share a{
+        font-weight: bold;
+        color: #000;
+        text-decoration: none;
+    }
+    #navigation a:hover, div#share a:hover{
+        border-bottom: solid 2px black;
+    }
 
-div#share{
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  width: 4em;
+#share{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 4em;
 }
 /* @end */
 
 /* @group venn-menu */
+#venn-menu{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+    #venn-menu li {
+        text-decoration: none;
+        margin: auto;
+        width: 900px;
+        height: 40px;
+    }
+        #venn-menu li input {
+            width: 200px;
+            padding: 0;
+            border-top: 1px solid transparent;
+            border-left: 1px solid transparent;
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid #777;
+            color: #434a46;
+            background: transparent;
+        }
+    #venn-menu .field {
+        display: inline-block;
+        width: 275px;
+        height: 30px;
+        margin-bottom: 4px;
+        padding: 5px 8px;
+        text-align: left;
+    }
+        #venn-menu .field.pull-left {
+            margin: 0 4px 4px 0;
+        }
+    #venn-menu label {
+        cursor: default;
+        text-transform: uppercase;
+        color: #000;
+        font-weight: bold;
+        padding-right: 0px;
+    }
 
-ul#venn-menu{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
-
-ul#venn-menu li{
-  text-decoration: none;
-  margin: auto;
-  width: 900px;
-  height: 40px;
-}
-
-
-ul#venn-menu .field {
-  display: inline-block;
-  width: 275px;
-  height: 30px;
-  margin-bottom: 4px;
-  padding: 5px 8px;
-  text-align: left;
-}
-ul#venn-menu .field.pull-left {
-      margin: 0 4px 4px 0;
-  }
-ul#venn-menu label {
-  cursor: default;
-  text-transform: uppercase;
-  color: #000;
-  font-weight: bold;
-  padding-right: 0px;
-}
-ul#venn-menu li input {
-  width: 200px;
-  padding: 0;
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-bottom: 1px solid #777;
-  color: #434a46;
-  background: transparent;
-}
-
-ul#venn-menu ul.colors {
-  width: 450px;
-  list-style: none;
-  margin: 0;
-  margin-top: 8px;
-  margin-left: 422px;
-  padding: 5px 8px;
-}
-ul#venn-menu ul.colors li {
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  height: 27px;
-  width: 35px;
-  margin: 0 8px 3px 9px;
-  padding-bottom: 2px;
-}
-ul#venn-menu ul.colors li:hover {
-  cursor: pointer;
-  border-bottom: 2px solid #000;
-}
-ul#venn-menu ul.colors li span.a, .menu ul.colors li span.b {
-  position: absolute;
-  top: 2px;
-  display: block;
-  height: 21px;
-  width: 21px;
-  background: rgba(100,100,100,0.5);
-  border-radius: 11px; 
-}
-  ul#venn-menu ul.colors li span.a {
-    left: 1px;
-    background: rgba(64,242,255,0.5);
-  }
-  ul#venn-menu ul.colors li span.b {
-    right: 1px;
-    background: rgba(254,17,149,0.5);
-  }
+    #venn-menu ul.colors {
+      width: 450px;
+      list-style: none;
+      margin: 0;
+      margin-top: 8px;
+      margin-left: 422px;
+      padding: 5px 8px;
+    }
+        #venn-menu ul.colors li {
+            box-sizing: border-box;
+            position: relative;
+            display: inline-block;
+            height: 27px;
+            width: 35px;
+            margin: 0 8px 3px 9px;
+            padding-bottom: 2px;
+        }
+            #venn-menu ul.colors li:hover {
+                cursor: pointer;
+                border-bottom: 2px solid #000;
+            }
+            #venn-menu ul.colors li span.a,
+            .menu ul.colors li span.b {
+                position: absolute;
+                top: 2px;
+                display: block;
+                height: 21px;
+                width: 21px;
+                background: rgba(100,100,100,0.5);
+                border-radius: 11px;
+            }
+            ul#venn-menu ul.colors li span.a {
+                left: 1px;
+                background: rgba(64,242,255,0.5);
+            }
+            ul#venn-menu ul.colors li span.b {
+                right: 1px;
+                background: rgba(254,17,149,0.5);
+            }
 
 /* jQuery UI handle override */
 #spread-slider {
-  height: 1px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  border-bottom: 2px dotted #000;
-  border-radius: 0;
+    height: 1px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px dotted #000;
+    border-radius: 0;
 }
-ul#venn-menu div#spread {
-  width: 398px;
-}
-#spread-slider a {
-  top: -8px;
-  width: 8px;
-  border: none;
-  border-radius: 0;
-  background: #000;
-}
-  #spread-slider a:hover {
-    cursor: pointer;
-    background: #6e6;
-  }
+    #spread-slider a {
+        top: -8px;
+        width: 8px;
+        border: none;
+        border-radius: 0;
+        background: #000;
+    }
+        #spread-slider a:hover {
+            cursor: pointer;
+            background: #6e6;
+        }
 
-ul#venn-menu .slide-control {
-  vertical-align: middle;
-  display: inline-block;
-  width: 310px;
-  padding: 0 2px 4px 8px;
+#venn-menu #spread {
+    width: 398px;
+}
+#venn-menu .slide-control {
+    vertical-align: middle;
+    display: inline-block;
+    width: 310px;
+    padding: 0 2px 4px 8px;
 }
 
 .menu .ui-state-hover, .menu .ui-widget-content .ui-state-hover, 
 .menu .ui-widget-header .ui-state-hover, .menu .ui-state-focus, 
 .menu .ui-widget-content .ui-state-focus, .menu .ui-widget-header .ui-state-focus {
-  border: 1px solid #85908a;
-  background: #dee1df;
-  font-weight: bold;
-  color: #dee1df;
-  border-radius: 0;
+    border: 1px solid #85908a;
+    background: #dee1df;
+    font-weight: bold;
+    color: #dee1df;
+    border-radius: 0;
 }
-
-.menu li {
-  vertical-align: top;
-  list-style-type: none;
-}
+    .menu li {
+        vertical-align: top;
+        list-style-type: none;
+    }
 /* @end */
