@@ -360,6 +360,15 @@ header {
 }
 
 @media (max-width : 480px) {
+    body.blur #main, body.blur header {
+        -webkit-filter: blur(20px);
+        -moz-filter: blur(20px);
+        -o-filter: blur(20px);
+        -ms-filter: blur(20px);
+        filter: blur(20px);
+        opacity: .5;
+        z-index: -100;
+    }
     /* @group navigation */
     #navigation{
         width: 100%;
@@ -377,19 +386,24 @@ header {
         display: block;
         width: 100%;
         padding: 10px 15px;
-        margin-bottom: 15px;
         text-transform: uppercase;
         color: #FFF;
         background-color: #000;
         cursor: pointer;
+        z-index: 1;
     }
     .menu-wrapper {
         bottom: -285px;
         transition: all .5s;
+        background: rgba(255,255,255,0.9);
+        z-index: 100;
     }
         .menu-wrapper.show {
             bottom: 0;
         }
+    .menu {
+        padding-top: 15px;
+    }
     .menu .row {
         width: 90%;
     }

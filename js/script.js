@@ -184,6 +184,7 @@ $(document).ready(function() {
 	//show and hide menu on mobile
 	$('#toggle-menu').click(function() {
 		$('.menu-wrapper').toggleClass('show');
+		$('body').toggleClass('blur');
 		console.log('click');
 	});
 
