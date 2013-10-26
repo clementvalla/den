@@ -181,22 +181,46 @@ body {
 }
 /* @end */
 
+#main {
+    margin-top: -50px;
+}
+
 /* @group venn-menu */
-.menu{
-    position: absolute;
+.menu-wrapper {
+    position: fixed;
     bottom: 0;
     width: 100%;
-    margin: 0;
+}
+.menu{
+    max-width: 960px;
+    margin: 0 auto;
     padding: 0;
     text-decoration: none;
 }
-    .menu li {
+    .menu .row {
         text-decoration: none;
         margin: auto;
-        width: 900px;
+        max-width: 960px;
         height: 40px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
     }
-        .menu li input {
+    .menu .row .col4 {
+        width: 33%;
+        text-align: center;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .menu .row .col6 {
+        width: 50%;
+        text-align: center;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+        .menu .row input {
             width: 200px;
             padding: 0;
             border-top: 1px solid transparent;
@@ -206,16 +230,9 @@ body {
             color: #434a46;
             background: transparent;
         }
-    .menu .field {
-        display: inline-block;
-        width: 275px;
-        height: 30px;
-        margin-bottom: 4px;
-        padding: 5px 8px;
-        text-align: left;
-    }
-        .menu .field.pull-left {
-            margin: 0 4px 4px 0;
+        .menu .row ul {
+            padding: 0;
+            margin: 0;
         }
     .menu label {
         cursor: default;
@@ -226,12 +243,7 @@ body {
     }
 
     .menu .colors {
-      width: 450px;
       list-style: none;
-      margin: 0;
-      margin-top: 8px;
-      margin-left: 422px;
-      padding: 5px 8px;
     }
         .menu .colors li {
             box-sizing: border-box;
@@ -239,7 +251,7 @@ body {
             display: inline-block;
             height: 27px;
             width: 35px;
-            margin: 0 8px 3px 9px;
+            margin: 0 8px 3px 0;
             padding-bottom: 2px;
         }
             .menu .colors li:hover {
@@ -326,4 +338,17 @@ body {
             font-size: 24px;
             margin-bottom: 10px;
         }
+    #main {
+        margin-top: -20px;
+    }
+    .menu .row {
+        width: 90%;
+    }
+    .menu .row .col4, .menu .row .col6 {
+        width: 100%;
+    }
+    .menu .row .field {
+        text-align: left;
+    }
+
 }
