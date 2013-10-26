@@ -21,17 +21,19 @@ if ( $handle = opendir( $dir ) ) {
 	$count = 0;
 	$file_count = count($files);
 
+	echo '<div id="content" class="library">';
 	// loop through the directory
 	foreach($files as $file) {
 		if ($count == $file_count - 1) {
 			echo '<li class="thumbnail '.$count.'"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></li></ul>';
 		} else if ($count == 0) {
-			echo '<ul><li class="thumbnail '.$count.'"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></li>';
+			echo '<ul class="clearfix"><li class="thumbnail '.$count.'"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></li>';
 		} else {
 			echo '<li class="thumbnail '.$count.'"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></li>';
 		}
 		$count++;
 	}
+	echo '</div>';
 }
 else {
 	echo "Directory does not exist!";

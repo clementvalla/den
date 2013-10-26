@@ -1,14 +1,5 @@
+<?php $page_name = 'index' ?>
 <?php include('includes/head.php'); ?>
-        
-        <div id="share" class="link pull-left">
-            <form action="venn-save.php" method="post" id="frm"/>
-                <input type="hidden" name="data" id="data" />
-                <input type="hidden" name="title" id="title" />
-                    <!-- <input type="submit" value="Submit"> -->
-            </form>
-            <a href="#">Share</a>
-        </div>
-
         <ul id="venn-menu" class="menu">        
             <li class="row-1">
                 <div id="circle1" class="field pull-left">

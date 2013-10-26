@@ -112,12 +112,12 @@ body {
 
 /* @group main navigation */
 #navigation{
-    position: fixed;
-    left: 15px;
-    top: 10px;
-    width: 250px;
+    width: 450px;
     font-size: 16px;
     line-height: 26px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5px;
 }
     #navigation .home{
         width: 100%;
@@ -132,26 +132,20 @@ body {
     #navigation .home a:hover{
         background-color: yellow;
     }
-    #navigation .link, #share {
+    #navigation .link {
         display: inline-block;
-        width: 100%;
         text-transform: uppercase;
+        padding: 0 10px;
     }
-    #navigation a, #share a{
+    #navigation a {
         font-weight: bold;
         color: #000;
         text-decoration: none;
     }
-    #navigation a:hover, div#share a:hover{
+    #navigation a:hover {
         border-bottom: solid 2px black;
     }
 
-#share{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    width: 4em;
-}
 /* @end */
 
 /* @group content */
@@ -168,6 +162,21 @@ body {
     #content p {
         margin: 0;
     }
+    #content.library, #content.diagram {
+        max-width: inherit;
+        margin-right: 50px;
+    }
+    #content ul {
+        list-style: none;
+    }
+    #content ul li {
+        float: left;
+        width: 400px;
+    }
+
+.diagram img {
+    width: 100%;
+}
 /* @end */
 
 /* @group venn-menu */
