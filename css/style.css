@@ -110,7 +110,12 @@ body {
     position: relative;
 }
 
-/* @group main navigation */
+header {
+    position: fixed;
+    width: 100%;
+}
+
+/* @group navigation */
 #navigation{
     width: 450px;
     font-size: 16px;
@@ -181,9 +186,10 @@ body {
 }
 /* @end */
 
+/* @group canvas */
 #main {
-    margin-top: -50px;
 }
+/* @end */
 
 /* @group venn-menu */
 .menu-wrapper {
@@ -238,8 +244,6 @@ body {
         cursor: default;
         text-transform: uppercase;
         color: #000;
-        font-weight: bold;
-        padding-right: 0px;
     }
 
     .menu .colors {
@@ -327,8 +331,14 @@ body {
     }
 /* @end */
 
+@media (max-width: 800px) {
+    #main {
+        padding-top: 40px;
+    }
+}
+
 @media (max-width : 480px) {
-    /* @group main navigation */
+    /* @group navigation */
     #navigation{
         width: 100%;
         font-size: 14px;
@@ -339,7 +349,7 @@ body {
             margin-bottom: 10px;
         }
     #main {
-        margin-top: -20px;
+        padding-top: 60px;
     }
     .menu .row {
         width: 90%;
@@ -351,4 +361,10 @@ body {
         text-align: left;
     }
 
+}
+
+@media (max-width : 335px) {
+    #main {
+        padding-top: 100px;
+    }
 }

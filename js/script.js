@@ -115,13 +115,13 @@ function draw() {
 	// split the text
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
-	//if the overlap is too small, the text shoudl move up and an arrow should be drawn
+	//if the overlap is too small, the text should move up and an arrow should be drawn
 	if (textw > remainder + 30) {
 		//draw the multiline text
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2 - radius + font_size, font_size);
 		//draw the line
 		ctx.beginPath();
-		ctx.moveTo(canvas.width / 2, canvas.height / 2 - radius + font_size * src_ar.length);
+		ctx.moveTo(canvas.width / 2, canvas.height / 2 - radius + font_size * src_ar.length + 10);
 		ctx.lineTo(canvas.width / 2, canvas.height / 2 - 3);
 		ctx.closePath();
 		ctx.stroke();
