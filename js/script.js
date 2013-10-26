@@ -176,6 +176,9 @@ $(document).ready(function() {
 			color2 = colors[index][1];
 			color3 = colors[index][2];
 		});
+		//color diagram color selectors with canvas colors
+		$(this).find('.a').css('background',colors[index][0]);
+		$(this).find('.b').css('background',colors[index][1]);
 	});
 
 	//bind the share button

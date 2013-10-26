@@ -23,7 +23,7 @@
 	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	<header>
 		<?php echo $name; ?>
-		<ul id="navigation" class="menu" role="navigation">
+		<ul id="navigation" class="nav-menu" role="navigation">
 			<li class="home"><a class="active" href="index.php">The Venn Diagram Generator</a></li>
 			<li class="link"><a href="venn-about.php">About</a></li>
 			<li class="link"><a href="venn-library.php">Library</a></li>

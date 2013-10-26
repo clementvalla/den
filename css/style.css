@@ -116,8 +116,10 @@ body {
     font-size: 16px;
     line-height: 26px;
     margin: 0 auto;
+    padding: 0;
     text-align: center;
     margin-top: 5px;
+    list-style: none;
 }
     #navigation .home{
         width: 100%;
@@ -180,7 +182,7 @@ body {
 /* @end */
 
 /* @group venn-menu */
-#venn-menu{
+.menu{
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -188,13 +190,13 @@ body {
     padding: 0;
     text-decoration: none;
 }
-    #venn-menu li {
+    .menu li {
         text-decoration: none;
         margin: auto;
         width: 900px;
         height: 40px;
     }
-        #venn-menu li input {
+        .menu li input {
             width: 200px;
             padding: 0;
             border-top: 1px solid transparent;
@@ -204,7 +206,7 @@ body {
             color: #434a46;
             background: transparent;
         }
-    #venn-menu .field {
+    .menu .field {
         display: inline-block;
         width: 275px;
         height: 30px;
@@ -212,10 +214,10 @@ body {
         padding: 5px 8px;
         text-align: left;
     }
-        #venn-menu .field.pull-left {
+        .menu .field.pull-left {
             margin: 0 4px 4px 0;
         }
-    #venn-menu label {
+    .menu label {
         cursor: default;
         text-transform: uppercase;
         color: #000;
@@ -223,7 +225,7 @@ body {
         padding-right: 0px;
     }
 
-    #venn-menu ul.colors {
+    .menu .colors {
       width: 450px;
       list-style: none;
       margin: 0;
@@ -231,7 +233,7 @@ body {
       margin-left: 422px;
       padding: 5px 8px;
     }
-        #venn-menu ul.colors li {
+        .menu .colors li {
             box-sizing: border-box;
             position: relative;
             display: inline-block;
@@ -240,27 +242,26 @@ body {
             margin: 0 8px 3px 9px;
             padding-bottom: 2px;
         }
-            #venn-menu ul.colors li:hover {
+            .menu .colors li:hover {
                 cursor: pointer;
                 border-bottom: 2px solid #000;
             }
-            #venn-menu ul.colors li span.a,
-            .menu ul.colors li span.b {
+            .menu .colors li span.a,
+            .menu .colors li span.b {
                 position: absolute;
                 top: 2px;
                 display: block;
                 height: 21px;
                 width: 21px;
-                background: rgba(100,100,100,0.5);
+                background: rgb(255,255,255);
+                opacity: 0.7;
                 border-radius: 11px;
             }
-            ul#venn-menu ul.colors li span.a {
+            .menu .colors li span.a {
                 left: 1px;
-                background: rgba(64,242,255,0.5);
             }
-            ul#venn-menu ul.colors li span.b {
+            .menu .colors li span.b {
                 right: 1px;
-                background: rgba(254,17,149,0.5);
             }
 
 /* jQuery UI handle override */
@@ -308,3 +309,16 @@ body {
         list-style-type: none;
     }
 /* @end */
+
+@media (max-width : 480px) {
+    /* @group main navigation */
+    #navigation{
+        width: 100%;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+        #navigation .home{
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+}
