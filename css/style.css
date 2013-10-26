@@ -75,6 +75,8 @@ td { vertical-align: top; }
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
+.pull-left { float: left; }
+.pull-right { float: right; }
 
 /* =============================================================================
    Print Styles
@@ -101,24 +103,18 @@ td { vertical-align: top; }
    Author: Jason Huff & Clement Valla
    ========================================================================== */
 body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
     width: 100%;
     position: relative;
 }
 
-.pull-left {
-    float: left;
-}
-.pull-right {
-    float: right;
-}
-
 /* @group main navigation */
 #navigation{
-    position: absolute;
+    position: fixed;
     left: 15px;
-    top:  15px;
+    top: 10px;
     width: 250px;
     font-size: 16px;
     line-height: 26px;
@@ -156,6 +152,22 @@ body {
     right: 15px;
     width: 4em;
 }
+/* @end */
+
+/* @group content */
+#content {
+    margin: 0 0 0 200px;
+    max-width: 550px;
+}
+    #content h1 {
+        font-size: 22px;
+        line-height: 38px;
+        text-transform: uppercase;
+        margin: 10px 0 0 0;
+    }
+    #content p {
+        margin: 0;
+    }
 /* @end */
 
 /* @group venn-menu */
