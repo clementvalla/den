@@ -246,22 +246,27 @@ body {
                 cursor: pointer;
                 border-bottom: 2px solid #000;
             }
-            .menu .colors li span.a,
-            .menu .colors li span.b {
+            .menu .colors li:hover .a,
+            .menu .colors li:hover .b {
+                opacity: 0.9;
+            }
+            .menu .colors .a,
+            .menu .colors .b {
                 position: absolute;
                 top: 2px;
                 display: block;
                 height: 21px;
                 width: 21px;
                 background: rgb(255,255,255);
-                opacity: 0.7;
                 border-radius: 11px;
+                opacity: 0.7;
             }
-            .menu .colors li span.a {
+            .menu .colors .a {
                 left: 1px;
             }
-            .menu .colors li span.b {
+            .menu .colors .b {
                 right: 1px;
+                z-index: -1;
             }
 
 /* jQuery UI handle override */
