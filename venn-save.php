@@ -23,7 +23,7 @@ $pngFile = 'diagrams/'.$title.'.png';
 
 while(file_exists ($pngFile)){
 	$count++;
-	$pngFile = 'diagrams/'.$title.$count.'.png';
+	$pngFile = 'diagrams/'.$title.'-'.$count.'.png';
 }
 
 // put the data to a file
