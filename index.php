@@ -9,7 +9,7 @@
                     <input type="text" name="firstcircle" id="firstcircle" value="Nobel Peace Prize Winners"/>
                 </div>
                 <div id="overlap" class="col4 field pull-left">
-                    <label>Center</label>
+                    <label>Centersssss</label>
                     <input type="text" name="overlap" id="overlap" value="Barak Obama"/>
                 </div>
                 <div id="circle3" class="col4 field pull-left">
