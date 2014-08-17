@@ -111,26 +111,19 @@ body {
 }
 
 header {
-    position: fixed;
+    position: relative;
     width: 100%;
 }
 
 /* @group navigation */
 #navigation{
-    width: 450px;
-    font-size: 16px;
-    line-height: 26px;
-    margin: 0 auto;
-    padding: 0;
+    padding-left: 0;
     text-align: center;
-    margin-top: 5px;
+    margin-top: 10px;
     list-style: none;
 }
     #navigation .home{
-        width: 100%;
-        font-size: 30px;
-        text-transform: capitalize;
-        line-height: 38px;
+        font-size: 26px;
         margin-bottom: 10px;
     }
     #navigation .home a{
@@ -187,7 +180,8 @@ header {
 /* @end */
 
 /* @group canvas */
-#main {
+.diagram {
+    margin-top: -100px;
 }
 /* @end */
 
@@ -251,6 +245,7 @@ header {
     .menu label {
         cursor: default;
         text-transform: uppercase;
+        font-weight: bold;
         color: #000;
     }
 
@@ -269,10 +264,12 @@ header {
         .menu .colors .label {
             width: auto;
             text-transform: uppercase;
+            font-weight: bold;
         }
             .menu .colors .label:hover {
                 border: none;            }
-            .menu .colors li:hover {
+            .menu .colors li:hover,
+            .menu .colors .active {
                 cursor: pointer;
                 border-bottom: 2px solid #000;
             }
@@ -353,9 +350,57 @@ header {
 }
 /* @end */
 
-@media (max-width: 800px) {
-    #main {
-        padding-top: 40px;
+@media (max-width: 768px) {
+    .diagram {
+        padding-top: 10%;
+    }
+    body.blur #main, body.blur header {
+        -webkit-filter: blur(20px);
+        -moz-filter: blur(20px);
+        -o-filter: blur(20px);
+        -ms-filter: blur(20px);
+        filter: blur(20px);
+        opacity: .5;
+        z-index: -100;
+    }
+    .menu-icon {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        color: #FFF;
+        background-color: #000;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .menu-wrapper {
+        bottom: -265px;
+        transition: all .5s;
+        background: rgba(255,255,255,0.9);
+        z-index: 100;
+    }
+        .menu-wrapper.show {
+            bottom: 0;
+        }
+    .menu {
+        padding-top: 15px;
+    }
+    .menu .row {
+        width: 90%;
+    }
+    .menu .row .col4, .menu .row .col6 {
+        padding-bottom: 20px;
+        width: 100%;
+    }
+    .menu .row .col4.field {
+        text-align: left;
+    }
+    .menu .colors li {
+        float: left;
+    }
+    .menu .colors li.label {
+        width: 100%;
+        text-align: left;
     }
 }
 
@@ -379,8 +424,8 @@ header {
             font-size: 24px;
             margin-bottom: 10px;
         }
-    #main {
-        padding-top: 60px;
+    .diagram {
+        padding-top: 20%;
     }
     .menu-icon {
         display: block;
@@ -424,7 +469,7 @@ header {
 }
 
 @media (max-width : 335px) {
-    #main {
-        padding-top: 100px;
+    .diagram {
+        padding-top: 25%;
     }
 }

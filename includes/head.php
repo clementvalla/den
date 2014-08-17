@@ -20,7 +20,7 @@
 </head>
 
 <body>
-	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	<header>
 		<?php echo $name; ?>
 		<ul id="navigation" class="nav-menu" role="navigation">
@@ -32,7 +32,7 @@
 		            <form action="venn-save.php" method="post" id="frm"/>
 		                <input type="hidden" name="data" id="data" />
 		                <input type="hidden" name="title" id="title" />
-		                    <!-- <input type="submit" value="Submit"> -->
+                        <!-- <input type="submit" value="Submit"> -->
 		            </form>
 		            <a href="#">Share</a>
 		        </li>

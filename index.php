@@ -1,7 +1,11 @@
 <?php $page_name = 'index' ?>
 <?php include('includes/head.php'); ?>
+    <div id="main" class="diagram" role="main">
+        <canvas width="800" height="400" id="mcanvas"></canvas>
+    </div>
+
     <div class="menu-wrapper">
-        <div id="toggle-menu" class="menu-icon">Menu</div>
+        <div id="toggle-menu" class="menu-icon">Options</div>
         <ul id="venn-menu" class="menu">        
             <li class="row">
                 <div id="circle1" class="col4 field pull-left">
@@ -27,7 +31,7 @@
                 </div>
                 <ul class="col6 pull-left colors">
                     <li class="label">Colors</li>
-                    <li id="select-1" class="color-selector"><span class="a"></span><span class="b"></span></li>
+                    <li id="select-1" class="color-selector active"><span class="a"></span><span class="b"></span></li>
                     <li id="select-2" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-3" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-4" class="color-selector"><span class="a"></span><span class="b"></span></li>
@@ -38,10 +42,6 @@
                 </ul>
             </li>
         </ul>
-    </div>
-
-    <div id="main" role="main">
-        <canvas width="800" height="600" id="mcanvas"></canvas>
     </div>
 
     <footer>

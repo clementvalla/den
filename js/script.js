@@ -172,9 +172,20 @@ $(document).ready(function() {
 
 	$('.color-selector').each(function(index) {
 		$(this).click(function() {
+            var colorsArray = $('.color-selector');
 			color1 = colors[index][0];
 			color2 = colors[index][1];
 			color3 = colors[index][2];
+
+            //Remove all active classes
+            if (!$(this).hasClass('active')) {
+                colorsArray.each(function(){
+                    console.log(this);
+                    $(this).removeClass('active');
+                });
+            }
+            //Add active class to clicked element
+            $(this).addClass('active');
 		});
 		//color diagram color selectors with canvas colors
 		$(this).find('.a').css('background',colors[index][0]);
@@ -185,7 +196,6 @@ $(document).ready(function() {
 	$('#toggle-menu').click(function() {
 		$('.menu-wrapper').toggleClass('show');
 		$('body').toggleClass('blur');
-		console.log('click');
 	});
 
 	//bind the share button
