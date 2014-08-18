@@ -25,6 +25,16 @@ header {
 /* @end */
 
 /* @group content */
+.library {
+    margin-left: 200px;
+}
+.library ul {
+    list-style: none;
+}
+.library .thumbnail img {
+    width: 100%;
+    height: auto;
+}
 /* @end */
 
 /* @group canvas */
@@ -178,6 +188,12 @@ header {
 /* @end */
 
 @media (max-width: 768px) {
+    header {
+        width: 100%;
+    }
+    .library {
+        margin-left: 0;
+    }
     .diagram {
         padding-top: 10%;
     }

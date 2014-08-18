@@ -22,7 +22,7 @@
 
 <body>
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<header class="container full-width">
+	<header class="container">
         <?php echo $name; ?>
         <h1 class="brand mobile-hide ml2 mt1"><a href="index.php">The Venn</br>Diagram</br>Generator</a></h1>
         <h1 class="brand mobile-show center m2"><a href="index.php">The Venn Diagram Generator</a></h1>
