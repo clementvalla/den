@@ -4,32 +4,35 @@
         <canvas width="800" height="400" id="mcanvas"></canvas>
     </div>
 
-    <div class="menu-wrapper">
-        <div id="toggle-menu" class="menu-icon">Options</div>
-        <ul id="venn-menu" class="menu">        
-            <li class="row">
-                <div id="circle1" class="col4 field pull-left">
+    <div class="menu-wrapper full-width">
+        <div id="toggle-menu" class="menu-icon clearfix">
+            <span class="left">Options</span>
+            <span class="right close">&times;</span>
+        </div>
+        <div id="venn-menu" class="menu">        
+            <div class="row">
+                <div id="circle1" class="col col-4 field">
                     <label>Left</label>
                     <input type="text" name="firstcircle" id="firstcircle" value="Nobel Peace Prize Winners"/>
                 </div>
-                <div id="overlap" class="col4 field pull-left">
+                <div id="overlap" class="col col-4 field">
                     <label>Center</label>
                     <input type="text" name="overlap" id="overlap" value="Barak Obama"/>
                 </div>
-                <div id="circle3" class="col4 field pull-left">
+                <div id="circle3" class="col col-4 field">
                     <label>Right</label>
                     <input type="text" name="secondcircle" id="secondcircle" value="Grammy Award Winners"/>
                 </div>          
-            </li>
-            <li class="row">
-                <div id="spread" class="col6 field pull-left">
+            </div>
+            <div class="row">
+                <div id="spread" class="col col-6 field">
                     <label>Spread</label>
                     <div class="slide-control">
                         <div id="spread-slider" class="slider"></div>
                     </div>
                     <input type="hidden" name="spread" id="spread-value" value="50"/>
                 </div>
-                <ul class="col6 pull-left colors">
+                <ul class="col col-6 colors m0 clearfix">
                     <li class="label">Colors</li>
                     <li id="select-1" class="color-selector active"><span class="a"></span><span class="b"></span></li>
                     <li id="select-2" class="color-selector"><span class="a"></span><span class="b"></span></li>
@@ -40,8 +43,8 @@
                     <li id="select-7" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-8" class="color-selector"><span class="a"></span><span class="b"></span></li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 
     <footer>

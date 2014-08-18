@@ -1,3 +1,4 @@
+<?php $page_name = 'library' ?>
 <?php include 'includes/head.php';?>
 <?php
 $dir = "diagrams_thumb/diagrams";

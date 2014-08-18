@@ -30,7 +30,7 @@ while(file_exists ($pngFile)){
 if (!file_put_contents($pngFile, base64_decode($uri))){?>
 	<?php include('includes/head.php'); ?>
 	<div id="confirmation">
-		<div id="confirmation-label">there was an error submitting your image. please try again.</div>
+		<div id="confirmation-label">Uh oh! There was an error submitting your image. Please try again.</div>
 	</div>
 	<?php include('includes/foot.php'); ?>
 <?php 
@@ -40,7 +40,7 @@ if (!file_put_contents($pngFile, base64_decode($uri))){?>
 		//create the thumbnail
 		require_once 'includes/phpthumb/ThumbLib.inc.php';
 		$thumb = PhpThumbFactory::create($pngFile);
-		$thumb->resize(400, 400)->save('diagrams_thumb/'.$pngFile);
+		$thumb->adaptiveResize(600, 600)->save('diagrams_thumb/'.$pngFile);
 
 	?>
 	<?php include 'includes/head.php';?>

@@ -13,29 +13,31 @@
 
 	<meta name="viewport" content="width=device-width">
 
-	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/jquery-ui-1.8.23.custom.css">
+    <link rel="stylesheet" href="css/basscss.css">
+    <link rel="stylesheet" href="css/style.css">
 
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 
 <body>
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<header>
-		<?php echo $name; ?>
-		<ul id="navigation" class="nav-menu" role="navigation">
-			<li class="home"><a class="active" href="index.php">The Venn Diagram Generator</a></li>
-			<li class="link"><a href="venn-about.php">About</a></li>
-			<li class="link"><a href="venn-library.php">Library</a></li>
-			<?php if ($page_name == 'index') { ?>
-		        <li id="share" class="link">
-		            <form action="venn-save.php" method="post" id="frm"/>
-		                <input type="hidden" name="data" id="data" />
-		                <input type="hidden" name="title" id="title" />
-                        <!-- <input type="submit" value="Submit"> -->
-		            </form>
-		            <a href="#">Share</a>
-		        </li>
-			<?php } ?>
-		</ul>
+	<header class="container full-width">
+        <?php echo $name; ?>
+        <h1 class="brand mobile-hide ml2 mt1"><a href="index.php">The Venn</br>Diagram</br>Generator</a></h1>
+        <h1 class="brand mobile-show center m2"><a href="index.php">The Venn Diagram Generator</a></h1>
+        <div class="nav ml2" role="navigation">
+            <a class="<?php if ($page_name == 'about') { ?>active<?php } ?>" href="venn-about.php">About</a>
+            <a class="<?php if ($page_name == 'library') { ?>active<?php } ?>" href="venn-library.php">Library</a>
+        <?php if ($page_name == 'index') { ?>
+            <a id="share" class="link">
+                <form action="venn-save.php" method="post" id="frm"/>
+                    <input type="hidden" name="data" id="data" />
+                    <input type="hidden" name="title" id="title" />
+                    <!-- <input type="submit" value="Submit"> -->
+                </form>
+                <span>Save</span>
+            </a>
+        <?php } ?>
+        </div>
 	</header>
