@@ -6,6 +6,11 @@ var color1 = "rgb(255,255,40)";
 var color2 = "rgb(70,175,220)";
 var color3 = "rgb(70,175,34)";
 var is_mobile = false;
+var login = "jsnhff";
+var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
+var long_url = "http://www.venndiagram.it";
+
+
 
 function setup() {
 	//set the canvas
@@ -233,6 +238,28 @@ $(document).ready(function() {
         console.log(query_string);
         return query_string;
     } ();
+
+    // Let's make our long URL with params, nice n short
+    function get_short_url(long_url, login, api_key, func)
+    {
+        $.getJSON(
+                "http://api.bitly.com/v3/shorten?callback=?", 
+                { 
+                    "format": "json",
+            "apiKey": api_key,
+            "login": login,
+            "longUrl": long_url
+                },
+                function(response)
+                {
+                    func(response.data.url);
+                }
+                );
+    }
+
+    get_short_url(long_url, login, api_key, function(short_url) {
+            console.log(short_url);
+    });
 
 	//start the app
 	setup();
