@@ -9,31 +9,21 @@ header {
 .brand {
     text-decoration: underline;
 }
-.nav a {
-    text-transform: uppercase;
-    font-weight: bold;
-    padding-left: 0;
+.button-box-black {
+    border: 2px solid #333;
 }
-    .nav a:hover,
-    .nav a.active {
-        text-decoration: underline;
-    }
-    .nav .link,
-    .nav .link:hover {
-        cursor: pointer;
-    }
-/* @end */
-
-/* @group content */
-.library {
-    margin-left: 200px;
+.button-box-black:hover {
+    background-color: #333;
+    color: #FFF;
 }
-.library ul {
-    list-style: none;
+.button-box-black:hover svg {
+    fill: #FFF;
 }
-.library .thumbnail img {
-    width: 100%;
-    height: auto;
+.icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -.125em;
 }
 /* @end */
 
