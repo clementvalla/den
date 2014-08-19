@@ -17,7 +17,6 @@ function setup() {
 
 	// if (Modernizr.touch) {
 	// 	// bind to touchstart, touchmove, etc and watch `event.streamId`
-		
 	// } else {
 	// 	// bind to normal click, mousemove, etc
 	// }
@@ -91,7 +90,7 @@ function draw() {
 	//text for circle 1
 	//grab the text
 	var src1 = $("input#firstcircle").val();
-	// split and mesaure the text 
+	// split and measure the text
 	var src_ar = src1.split(" ");
 	var textw = measureWidestText(src_ar);
 	if (textw > offset * 2 - 30) {
@@ -193,10 +192,10 @@ $(document).ready(function() {
 	});
 
 	//show and hide menu on mobile
-	$('#toggle-menu').click(function() {
-		$('.menu-wrapper').toggleClass('show');
-		$('body').toggleClass('blur');
-	});
+	//$('#toggle-menu').click(function() {
+	//	$('.menu-wrapper').toggleClass('show');
+	//	$('body').toggleClass('blur');
+	//});
 
 	//bind the share button
 	$("#share").click(function() {
@@ -210,6 +209,30 @@ $(document).ready(function() {
 		//submit
 		$("#frm").trigger('submit');
 	});
+
+    var QueryString = function () {
+        // This function is anonymous, is executed immediately and
+        // the return value is assigned to QueryString!
+        var query_string = {};
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            // If first entry with this name
+            if (typeof query_string[pair[0]] === "undefined") {
+                query_string[pair[0]] = pair[1];
+                // If second entry with this name
+            } else if (typeof query_string[pair[0]] === "string") {
+                var arr = [ query_string[pair[0]], pair[1] ];
+                query_string[pair[0]] = arr;
+                // If third or later entry with this name
+            } else {
+                query_string[pair[0]].push(pair[1]);
+            }
+        }
+        console.log(query_string);
+        return query_string;
+    } ();
 
 	//start the app
 	setup();
