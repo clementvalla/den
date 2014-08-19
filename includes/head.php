@@ -27,9 +27,6 @@
         <h1 class="brand mobile-hide ml2 mt1"><a href="index.php">The Venn</br>Diagram</br>Generator</a></h1>
         <h1 class="brand mobile-show center m2"><a href="index.php">The Venn Diagram Generator</a></h1>
         <div class="nav ml2" role="navigation">
-            <a class="<?php if ($page_name == 'about') { ?>active<?php } ?>" href="venn-about.php">About</a>
-            <a class="<?php if ($page_name == 'library') { ?>active<?php } ?>" href="venn-library.php">Library</a>
-        <?php if ($page_name == 'index') { ?>
             <a id="share" class="link">
                 <form action="venn-save.php" method="post" id="frm"/>
                     <input type="hidden" name="data" id="data" />
@@ -38,6 +35,5 @@
                 </form>
                 <span>Save</span>
             </a>
-        <?php } ?>
         </div>
 	</header>
