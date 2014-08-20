@@ -6,10 +6,13 @@ var color1 = "rgb(255,255,40)";
 var color2 = "rgb(70,175,220)";
 var color3 = "rgb(70,175,34)";
 var is_mobile = false;
+var query_string = {};
 var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
-
+var inputLeft = $("input#firstcircle");
+var inputCenter = $("input#overlap");
+var inputRight = $("input#secondcircle");
 
 
 function setup() {
@@ -19,12 +22,20 @@ function setup() {
 
 	//set the interval
 	interval = setInterval(draw, 50);
-
-	// if (Modernizr.touch) {
-	// 	// bind to touchstart, touchmove, etc and watch `event.streamId`
-	// } else {
-	// 	// bind to normal click, mousemove, etc
-	// }
+    
+    // Now let's set the Venn Diagram values to the URL params! Weee!
+    if ($(query_string).length > 0) {
+        $.each(query_string, function(key, value) {
+            console.log("key: "+ key + ", value: "+value);
+            if (key == "left") {
+                inputLeft.val(value);
+            } else if (key == "center") {
+                inputCenter.val(value)
+            } else if (key == "right") {
+                inputRight.val(value);
+            }
+        });
+    }
 }
 
 function draw() {
@@ -218,7 +229,6 @@ $(document).ready(function() {
     var QueryString = function () {
         // This function is anonymous, is executed immediately and
         // the return value is assigned to QueryString!
-        var query_string = {};
         var query = window.location.search.substring(1);
         var vars = query.split("&");
         for (var i=0;i<vars.length;i++) {
@@ -235,9 +245,17 @@ $(document).ready(function() {
                 query_string[pair[0]].push(pair[1]);
             }
         }
+        // Now let's make this hand query string become our Venn Diagram inputs!
         console.log(query_string);
         return query_string;
     } ();
+
+    if ($(query_string).length > 0) {
+        $.each(query_string, function(key, value) {
+            console.log("key: "+ key + ", value: "+value);
+            $(key).val(value);
+        });
+    }
 
     // Let's make our long URL with params, nice n short
     function get_short_url(long_url, login, api_key, func)
@@ -246,9 +264,9 @@ $(document).ready(function() {
                 "http://api.bitly.com/v3/shorten?callback=?", 
                 { 
                     "format": "json",
-            "apiKey": api_key,
-            "login": login,
-            "longUrl": long_url
+                    "apiKey": api_key,
+                    "login": login,
+                    "longUrl": long_url
                 },
                 function(response)
                 {
