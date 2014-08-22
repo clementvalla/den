@@ -316,7 +316,9 @@ $(document).ready(function() {
         var long_url = "http://www.parseshare.com/den/"+params;
         get_short_url(long_url, login, api_key, function(short_url) {
             shortURL = short_url;
+            console.log(shortURL);
         });
+            $("#share").attr("href", "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+shortURL+"&hashtags=venndiagram&via=jsnhff");
     });
 
 	setup();
