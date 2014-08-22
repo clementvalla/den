@@ -262,27 +262,6 @@ $(document).ready(function() {
         return query_string;
     } ();
 
-    // Let's make our long URL with params, nice n short
-    function get_short_url(long_url, login, api_key, func)
-    {
-        $.getJSON(
-                "http://api.bitly.com/v3/shorten?callback=?", 
-                { 
-                    "format": "json",
-                    "apiKey": api_key,
-                    "login": login,
-                    "longUrl": long_url
-                },
-                function(response)
-                {
-                    func(response.data.url);
-                }
-                );
-    }
-
-    get_short_url(long_url, login, api_key, function(short_url) {
-        shortURL = short_url;
-    });
 
     // Track changes to inputs and change the URL params based on new values
     // This could probably be a lot cleaner.
@@ -312,7 +291,33 @@ $(document).ready(function() {
             var newURL = "?" + newURL;
             history.pushState(null, null, newURL);
         });
+
+    // Let's make our long URL with params, nice n short
+    function get_short_url(long_url, login, api_key, func)
+    {
+        $.getJSON(
+                "http://api.bitly.com/v3/shorten?callback=?",
+                {
+                    "format": "json",
+                    "apiKey": api_key,
+                    "login": login,
+                    "longUrl": long_url
+                },
+                function(response)
+                {
+                    func(response.data.url);
+                }
+                );
+    }
+
     // Create a short link when folks hover on the tweet button
-	//start the app
+    $("#share").on("mouseover", function(){
+        var params = window.location.search;
+        var long_url = "http://www.parseshare.com/den/"+params;
+        get_short_url(long_url, login, api_key, function(short_url) {
+            shortURL = short_url;
+        });
+    });
+
 	setup();
 });
