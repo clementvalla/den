@@ -10,10 +10,10 @@ var query_string = {};
 var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
-var inputLeft = $("input#firstcircle");
-var inputCenter = $("input#overlap");
-var inputRight = $("input#secondcircle");
-
+var shortURL = "";
+var inputLeft = $("input#input-left");
+var inputCenter = $("input#input-center");
+var inputRight = $("input#input-right");
 
 function setup() {
 	//set the canvas
@@ -22,17 +22,31 @@ function setup() {
 
 	//set the interval
 	interval = setInterval(draw, 50);
+
+    // Clean those URLs dog
+    function cleanURLParam(param) {
+        var word = param;
+        var plusCount = (word.match(/\+/g)) ? word.match(/\+/g) : 0;
+            word = decodeURIComponent(word);
+            $.each(plusCount, function(){
+                word = word.replace("+"," ");
+            });
+
+        return word;
+    }
     
     // Now let's set the Venn Diagram values to the URL params! Weee!
     if ($(query_string).length > 0) {
         $.each(query_string, function(key, value) {
-            console.log("key: "+ key + ", value: "+value);
             if (key == "left") {
-                inputLeft.val(value);
+                value = cleanURLParam(value);
+                inputLeft.attr("value", value);
             } else if (key == "center") {
-                inputCenter.val(value)
+                value = cleanURLParam(value);
+                inputCenter.attr("value", value)
             } else if (key == "right") {
-                inputRight.val(value);
+                value = cleanURLParam(value);
+                inputRight.attr("value", value);
             }
         });
     }
@@ -105,7 +119,7 @@ function draw() {
 
 	//text for circle 1
 	//grab the text
-	var src1 = $("input#firstcircle").val();
+	var src1 = inputLeft.val();
 	// split and measure the text
 	var src_ar = src1.split(" ");
 	var textw = measureWidestText(src_ar);
@@ -115,7 +129,7 @@ function draw() {
 		drawMultiline(src_ar, canvas.width / 2 - offset - remainder, canvas.height / 2, font_size);
 	}
 	//text for circle 2
-	var src2 = $("input#secondcircle").val();
+	var src2 = inputRight.val();
 	// split the text
 	var src_ar = src2.split(" ");
 	var textw = measureWidestText(src_ar);
@@ -126,7 +140,7 @@ function draw() {
 	}
 
 	//text for overlap
-	var src3 = $("input#overlap").val();
+	var src3 = inputCenter.val();
 	// split the text
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
@@ -195,7 +209,6 @@ $(document).ready(function() {
             //Remove all active classes
             if (!$(this).hasClass('active')) {
                 colorsArray.each(function(){
-                    console.log(this);
                     $(this).removeClass('active');
                 });
             }
@@ -231,6 +244,7 @@ $(document).ready(function() {
         // the return value is assigned to QueryString!
         var query = window.location.search.substring(1);
         var vars = query.split("&");
+
         for (var i=0;i<vars.length;i++) {
             var pair = vars[i].split("=");
             // If first entry with this name
@@ -245,17 +259,8 @@ $(document).ready(function() {
                 query_string[pair[0]].push(pair[1]);
             }
         }
-        // Now let's make this hand query string become our Venn Diagram inputs!
-        console.log(query_string);
         return query_string;
     } ();
-
-    if ($(query_string).length > 0) {
-        $.each(query_string, function(key, value) {
-            console.log("key: "+ key + ", value: "+value);
-            $(key).val(value);
-        });
-    }
 
     // Let's make our long URL with params, nice n short
     function get_short_url(long_url, login, api_key, func)
@@ -276,9 +281,38 @@ $(document).ready(function() {
     }
 
     get_short_url(long_url, login, api_key, function(short_url) {
-            console.log(short_url);
+        shortURL = short_url;
     });
 
+    // Track changes to inputs and change the URL params based on new values
+    // This could probably be a lot cleaner.
+    // Known Bugs: This state tracking prevents a select all and delete. It's
+    // kind of annoying, but we'll see if folks notice it. If they do we can
+    // work around it.
+    var inputs = $("#input-left, #input-center, #input-right");
+        inputs.bind("change paste", function() {
+            var inputID = $(this).attr("id");
+            var value = "";
+                if (inputID == "input-left") {
+                    value = inputLeft.val();
+                    inputLeft.attr("value", value);
+                } else if (inputID == "input-center") {
+                    value = inputCenter.val();
+                    inputCenter.attr("value", value);
+                } else if (inputID == "input-right") {
+                    value = inputRight.val();
+                    inputRight.attr("value", value);
+                }
+            var map = {
+                left: inputLeft.val(),
+                center: inputCenter.val(),
+                right: inputRight.val()
+            };
+            newURL = $.param(map);
+            var newURL = "?" + newURL;
+            history.pushState(null, null, newURL);
+        });
+    // Create a short link when folks hover on the tweet button
 	//start the app
 	setup();
 });

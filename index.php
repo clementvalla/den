@@ -13,15 +13,15 @@
             <div class="row">
                 <div id="circle1" class="col col-4 field">
                     <label>Left</label>
-                    <input type="text" name="firstcircle" id="firstcircle" value="Nobel Peace Prize Winners"/>
+                    <input type="text" name="param" id="input-left"/>
                 </div>
                 <div id="overlap" class="col col-4 field">
                     <label>Center</label>
-                    <input type="text" name="overlap" id="overlap" value="Barak Obama"/>
+                    <input type="text" name="param" id="input-center" value=""/>
                 </div>
                 <div id="circle3" class="col col-4 field">
                     <label>Right</label>
-                    <input type="text" name="secondcircle" id="secondcircle" value="Grammy Award Winners"/>
+                    <input type="text" name="param" id="input-right" value=""/>
                 </div>          
             </div>
             <div class="row">
