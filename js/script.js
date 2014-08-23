@@ -7,6 +7,7 @@ var color2 = "rgb(70,175,220)";
 var color3 = "rgb(70,175,34)";
 var is_mobile = false;
 var query_string = {};
+var query_string_count = "";
 var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
@@ -15,12 +16,33 @@ var inputLeft = $("input#input-left");
 var inputCenter = $("input#input-center");
 var inputRight = $("input#input-right");
 
+var random_string_count = "";
+var random_string = {
+    "1": {
+        "left":"Nobel Peace Prize Winner",
+        "center":"Barack Obama",
+        "right":"Emmay Award Winner"
+    },
+    "2": {
+        "left":"Things I Like",
+        "center":"Things I Used to Like",
+        "right":"Things You Like"
+    },
+    "3": {
+        "left":"Movies",
+        "center":"Shitty Movies",
+        "right":"Vin Diesel"
+    }
+};
+
+
+
 function setup() {
-	//set the canvas
+	// Set the canvas
 	canvas = document.getElementById("mcanvas");
 	ctx = canvas.getContext("2d");
 
-	//set the interval
+	// Set the interval
 	interval = setInterval(draw, 50);
 
     // Clean those URLs dog
@@ -34,10 +56,33 @@ function setup() {
 
         return word;
     }
+
+    // Count the number of params before we set them.
+    // This let's us choose to set fun random ones.
+    for (var j in query_string) query_string_count++;
+
+    for (var j in random_string) random_string_count++;
     
     // Now let's set the Venn Diagram values to the URL params! Weee!
-    if ($(query_string).length > 0) {
+    if (query_string_count >= 1 && window.location.search.length > 0) {
         $.each(query_string, function(key, value) {
+            if (key == "left") {
+                value = cleanURLParam(value);
+                inputLeft.attr("value", value);
+            } else if (key == "center") {
+                value = cleanURLParam(value);
+                inputCenter.attr("value", value)
+            } else if (key == "right") {
+                value = cleanURLParam(value);
+                inputRight.attr("value", value);
+            }
+        });
+    } else {
+        // Create a random number based on the preset Vennz
+        var number = Math.floor(Math.random() * random_string_count) + 1;
+
+        // Loop through and set the values of the Venn
+        $.each(random_string[[number]], function(key, value) {
             if (key == "left") {
                 value = cleanURLParam(value);
                 inputLeft.attr("value", value);
