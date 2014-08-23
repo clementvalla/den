@@ -32,6 +32,11 @@ var random_string = {
         "left":"Movies",
         "center":"Shitty Movies",
         "right":"Vin Diesel"
+    },
+    "4": {
+        "left":"Art",
+        "center":"Postinternet Art",
+        "right":"Net.Art"
     }
 };
 
