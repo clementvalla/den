@@ -220,24 +220,18 @@ $(document).ready(function() {
 		$(this).find('.b').css('background',colors[index][1]);
 	});
 
-	//show and hide menu on mobile
-	//$('#toggle-menu').click(function() {
-	//	$('.menu-wrapper').toggleClass('show');
-	//	$('body').toggleClass('blur');
-	//});
-
 	//bind the share button
-	$("#share").click(function() {
-		//get the canvas
-		var canvasd = document.getElementById("mcanvas").toDataURL();
-		$("#data").val(canvasd);
+	//$("#share").click(function() {
+	//	//get the canvas
+	//	var canvasd = document.getElementById("mcanvas").toDataURL();
+	//	$("#data").val(canvasd);
 
-		//prepare the title
-		$("#title").val($("input#overlap").val().replace(" ", "_"));
+	//	//prepare the title
+	//	$("#title").val($("input#overlap").val().replace(" ", "_"));
 
-		//submit
-		$("#frm").trigger('submit');
-	});
+	//	//submit
+	//	$("#frm").trigger('submit');
+	//});
 
     var QueryString = function () {
         // This function is anonymous, is executed immediately and
@@ -311,14 +305,26 @@ $(document).ready(function() {
     }
 
     // Create a short link when folks hover on the tweet button
-    $("#share").on("mouseover", function(){
+    $("#share").click(function(event) {
+        //Do not treat this like a link. Thanks.
+        event.preventDefault();
         var params = window.location.search;
         var long_url = "http://www.parseshare.com/den/"+params;
+
+        $(this).addClass("loading");
+
         get_short_url(long_url, login, api_key, function(short_url) {
-            shortURL = short_url;
-            console.log(shortURL);
+            //Assign long URL to be shared
+            long_url = "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+short_url+"&hashtags=venndiagram&via=jsnhff";
+            //Remove that loading wheel
+            $("#share").removeClass("loading");
+            //Reload the page with the populated tweet all setup
+            location.assign(
+                long_url
+            );
         });
-            $("#share").attr("href", "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+shortURL+"&hashtags=venndiagram&via=jsnhff");
+
+        return false;
     });
 
 	setup();

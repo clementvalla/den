@@ -25,6 +25,16 @@ header {
     height: 1em;
     vertical-align: -.125em;
 }
+.icon-loading {
+    display: none;
+}
+.loading .icon-loading {
+    display: inline;
+}
+.loading .icon-tweet {
+    display: none
+}
+.
 /* @end */
 
 /* @group canvas */
