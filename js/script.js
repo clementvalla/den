@@ -473,10 +473,10 @@ $(document).ready(function() {
 
     // Create a short link when folks click on the tweet button
     shareButtons.click(function(event) {
-        var button = $(this);
-        console.log("licklll");
         // Do not treat this like a link. Thanks.
         event.preventDefault();
+
+        var button = $(this);
         var params = window.location.search;
         var long_url = "http://www.parseshare.com/den/"+params;
 
