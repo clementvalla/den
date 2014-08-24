@@ -30,7 +30,11 @@ var inputLeft = $("#input-left");
 var inputCenter = $("#input-center");
 var inputRight = $("#input-right");
 var inputSpread = $("#spread-value");
-
+var leftVal;
+var centerVal;
+var rightVal;
+var spreadVal;
+var colorVal;
 var random_string_count = "";
 var random_string = {
     "1": {
@@ -313,6 +317,8 @@ $(document).ready(function() {
                 color2 = colors[value][1];
                 color3 = colors[value][2];
                 $(colorSelectors[value]).addClass("active");
+                colorVal = value;
+                console.log("Value existing: "+value);
             }
         });
     } else {
@@ -333,10 +339,12 @@ $(document).ready(function() {
             } else if (key == "spread") {
                 spread = (value != "") ? value : 50;
             } else if (key == "color") {
+                console.log("Value: "+value);
                 color1 = colors[value][0];
                 color2 = colors[value][1];
                 color3 = colors[value][2];
                 $(colorSelectors[value]).addClass("active");
+                colorVal = value;
             }
         });
     }
@@ -352,17 +360,17 @@ $(document).ready(function() {
         }
     });
     // Rewrite the spread URL param on Slider change
-    $("#spread-slider").slider().on("slidechange", function(){
-        console.log("slider change");
+    $("#spread-slider").slider().on("slidechange", function() {
         updateURL("spread", spread);
     });
 
+    // Update URL function
     function updateURL(key, value){
+        console.log("Update color: "+colorVal);
         var leftVal = inputLeft.val(),
             centerVal = inputCenter.val(),
             rightVal = inputRight.val(),
-            spreadVal = spread,
-            colorVal;
+            spreadVal = spread;
 
         if (key == "left") {
             if (value != inputLeft.val()) {
@@ -389,18 +397,15 @@ $(document).ready(function() {
                 spreadVal = spread;
             }
         } else if (key == "color") {
-            if (value != inputLeft.val()) {
-                colorVal = value;
-            } else {
-                leftVal = inputLeft.val();
-            }
+            colorVal = value;
         }
+
         var map = {
             left: leftVal,
             center: centerVal,
             right: rightVal,
             spread: spreadVal,
-            color: 0
+            color: colorVal
         };
         newURL = $.param(map);
         var newURL = "?" + newURL;
@@ -409,9 +414,10 @@ $(document).ready(function() {
 
     // Track changes to inputs and change the URL params based on new values
     // This could probably be a lot cleaner.
-    inputs.bind("change paste focus trigger", function() {
+    inputs.bind("change paste focus trigger click", function() {
         var inputID = $(this).attr("id");
         var inputValue = $(this).val();
+
         if (inputID == "input-left") {
             inputLeft.attr("value", inputValue);
             updateURL("left", inputValue);
@@ -421,7 +427,14 @@ $(document).ready(function() {
         } else if (inputID == "input-right") {
             inputRight.attr("value", inputValue);
             updateURL("right", inputValue);
+        } else if ($(this).hasClass("active")) {
+            $.each(colorSelectors, function(key, value) {
+                if ($(value).hasClass("active")) {
+                    updateURL("color", key);
+                }
+            });
         }
+
     });
 
     // Setup async function to get links from Bit.ly
