@@ -34,7 +34,6 @@ header {
 .loading .icon-tweet {
     display: none
 }
-.
 /* @end */
 
 /* @group canvas */
@@ -48,12 +47,12 @@ header {
     position: fixed;
     bottom: 0;
 }
-.menu{
+.menu {
     min-width: 960px;
+    max-width: 960px;
+    margin: auto;
 }
     .menu .row {
-        margin: auto;
-        max-width: 960px;
         height: 50px;
     }
     .menu label {
@@ -196,62 +195,42 @@ header {
     }
     .diagram {
         padding-top: 10%;
-    }
-    body.blur #main, body.blur header {
-        -webkit-filter: blur(20px);
-        -moz-filter: blur(20px);
-        -o-filter: blur(20px);
-        -ms-filter: blur(20px);
-        filter: blur(20px);
-        opacity: .5;
-        z-index: -100;
-    }
-    .menu-icon {
-        display: block;
-        width: 100%;
-        padding: 10px 15px;
-        text-transform: uppercase;
-        color: #FFF;
-        background-color: #333;
-        cursor: pointer;
-        z-index: 1;
+        margin-top: 0;
     }
     .menu-wrapper {
-        bottom: -160px;
-        transition: all .5s;
-        background: rgba(255,255,255,0.7);
-        z-index: 100;
+        position: relative;
     }
-        .menu-wrapper.show {
-            bottom: 0;
-        }
     .menu {
         padding-top: 15px;
         min-width: inherit;
     }
-    .menu .row {
-        margin: 0;
-        height: auto;
-    }
-    .menu .row label {
-        display: block;
-    }
-    .menu .row .col,
-    .menu .row .col:nth-of-type(2),
-    .menu .row .col:nth-of-type(3) {
-        text-align: left;
-        padding-bottom: 16px;
-    }
-    .menu .slide-control {
-        width: 68%;
-    }
-    .menu .colors li {
-        width: 64px;
-        height: 49px;
-    }
-    .menu .colors li.label {
-        height: auto;
-    }
+        .menu .row {
+            margin: 0;
+            height: auto;
+        }
+        .menu .row input {
+            width: 100%;
+        }
+            .menu .row label {
+                display: block;
+            }
+            .menu .row .col,
+            .menu .row .col:nth-of-type(2),
+            .menu .row .col:nth-of-type(3) {
+                text-align: left;
+                padding-bottom: 16px;
+            }
+        .menu .slide-control {
+            width: 100%;
+            padding: 0;
+        }
+            .menu .colors li {
+                width: 64px;
+                height: 49px;
+            }
+                .menu .colors li.label {
+                    height: auto;
+                }
 }
 
 @media (max-width : 480px) {
@@ -267,34 +246,8 @@ header {
         opacity: .5;
         z-index: -100;
     }
-    .menu-icon {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        padding: 10px 15px;
-        text-transform: uppercase;
-        color: #FFF;
-        background-color: #666;
-        cursor: pointer;
-        z-index: 1;
-    }
-    .menu-wrapper {
-        bottom: -424px;
-        transition: all .5s;
-        background: rgba(255,255,255,0.7);
-        z-index: 100;
-    }
-        .menu-wrapper .close {
-            display: none;
-        }
-            .menu-wrapper.show {
-                bottom: 0;
-            }
-            .menu-wrapper.show .close {
-                display: block;
-            }
-    .menu {
-        padding-top: 15px;
+    .diagram {
+        padding-top: 5%;
     }
     .menu .colors li {
         float: left;
@@ -307,9 +260,9 @@ header {
 
 @media (max-width : 335px) {
     .brand {
-        font-size: 1.5em; 
+        font-size: 1.15em; 
     }
     .diagram {
-        padding-top: 25%;
+        padding-top: 5%;
     }
 }

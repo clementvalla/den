@@ -30,6 +30,7 @@ var inputLeft = $("#input-left");
 var inputCenter = $("#input-center");
 var inputRight = $("#input-right");
 var inputSpread = $("#spread-value");
+var mobileSpreadButtons = $("#spread-increase, #spread-decrease");
 var leftVal;
 var centerVal;
 var rightVal;
@@ -359,6 +360,22 @@ $(document).ready(function() {
             $( "#spread-value" ).val( ui.value );
         }
     });
+    // Bind mobile slider button actions
+    console.log(mobileSpreadButtons);
+    mobileSpreadButtons.bind("click", function() {
+        var thisID = $(this);
+        var spreadValue = inputSpread.val();
+
+        if (thisID.is("#spread-increase")) {
+            spreadValue = parseInt(spreadValue)+10;
+            inputSpread.attr("value",spreadValue);
+            $("#spread-slider a").css("left", spreadValue+"%");
+        } else if (thisID.is("#spread-decrease")) {
+            spreadValue = parseInt(spreadValue)-10;
+            inputSpread.attr("value",spreadValue);
+            $("#spread-slider a").css("left", spreadValue+"%");
+        }
+    });
     // Rewrite the spread URL param on Slider change
     $("#spread-slider").slider().on("slidechange", function() {
         updateURL("spread", spread);
@@ -434,7 +451,6 @@ $(document).ready(function() {
                 }
             });
         }
-
     });
 
     // Setup async function to get links from Bit.ly
