@@ -231,6 +231,9 @@ header {
                 .menu .colors li.label {
                     height: auto;
                 }
+        .menu #mobile-share {
+            box-sizing: border-box;
+        }
 }
 
 @media (max-width : 480px) {

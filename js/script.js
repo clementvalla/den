@@ -24,6 +24,7 @@ var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
 var shortURL = "";
+var shareButtons = $("#share, #mobile-share");
 // Clean up the inputs to just make them an Array?
 var inputs = $("#input-left, #input-center, #input-right, #spread-slider, .color-selector");
 var inputLeft = $("#input-left");
@@ -471,19 +472,21 @@ $(document).ready(function() {
     }
 
     // Create a short link when folks click on the tweet button
-    $("#share").click(function(event) {
+    shareButtons.click(function(event) {
+        var button = $(this);
+        console.log("licklll");
         // Do not treat this like a link. Thanks.
         event.preventDefault();
         var params = window.location.search;
         var long_url = "http://www.parseshare.com/den/"+params;
 
-        $(this).addClass("loading");
+        button.addClass("loading");
 
         get_short_url(long_url, login, api_key, function(short_url) {
             // Assign long URL to be shared
-            long_url = "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+short_url+"&hashtags=venndiagram&via=jsnhff";
+            long_url = "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+short_url+"&hashtags=venndiagram&via=VennDiagramer";
             // Remove that loading wheel
-            $("#share").removeClass("loading");
+            button.removeClass("loading");
             // Reload the page with the populated tweet all setup
             location.assign(
                 long_url
