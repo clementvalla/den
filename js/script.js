@@ -1,6 +1,7 @@
 var canvas, ctx;
 var interval;
-var spread = 75;
+var spread;
+var urlSpreadSet = true;
 var radius = 150;
 var color1 = "rgb(255,255,40)";
 var color2 = "rgb(70,175,220)";
@@ -15,32 +16,35 @@ var shortURL = "";
 var inputLeft = $("input#input-left");
 var inputCenter = $("input#input-center");
 var inputRight = $("input#input-right");
+var inputSpread = $("input#spread-value");
 
 var random_string_count = "";
 var random_string = {
     "1": {
         "left":"Nobel Peace Prize Winner",
         "center":"Barack Obama",
-        "right":"Emmay Award Winner"
+        "right":"Emmay Award Winner",
+        "spread": 50
     },
     "2": {
         "left":"Things I Like",
         "center":"Things I Used to Like",
-        "right":"Things You Like"
+        "right":"Things You Like",
+        "spread": 70
     },
     "3": {
         "left":"Movies",
         "center":"Shitty Movies",
-        "right":"Vin Diesel"
+        "right":"Vin Diesel",
+        "spread": 30
     },
     "4": {
         "left":"Art",
         "center":"Postinternet Art",
-        "right":"Net.Art"
+        "right":"Net.Art",
+        "spread": 10
     }
 };
-
-
 
 function setup() {
 	// Set the canvas
@@ -97,14 +101,16 @@ function setup() {
             } else if (key == "right") {
                 value = cleanURLParam(value);
                 inputRight.attr("value", value);
+            } else if (key == "spread") {
+                spread = (value != "") ? value : 50;
             }
         });
     }
 }
 
 function draw() {
-	//set the canvas size
-	//maintain an aspect ration of 3:2
+	// Set the canvas size
+	// Maintain an aspect ration of 3:2
 	canvas.width = canvas.width;
 	canvas.width = window.innerWidth - 10;
 	canvas.height = window.innerHeight - 10;
@@ -114,29 +120,35 @@ function draw() {
 	canvas.style.marginLeft = (window.innerWidth - canvas.width) / 2 + "px";
 	radius = canvas.width * 0.22;
 
-	//console.log("radius: "+radius);
-	//update the spread
-	spread = parseInt($("input#spread-value").val());
-	//if (!spread) spread = 75;
+    // Update the spread
+    if (urlSpreadSet) {
+        inputSpread.attr("value",spread);
+        $("#spread-slider a").css("left", spread+"%");
+        urlSpreadSet = false;
+    } else {
+        spread = parseInt(inputSpread.val());
+    }
+
+	// Keep the spread within a boundary of 100
 	spread = (spread > 98) ? 98 : spread;
 	spread = (spread <= 2) ? 2 : spread;
 	var offset = radius * (100 - spread) / 100;
 
-	//circle 1
+	// Circle 1
 	ctx.beginPath();
 	ctx.arc(canvas.width / 2 - offset, canvas.height / 2, radius, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fillStyle = color1;
 	ctx.fill();
 
-	//circle 2
-	ctx.beginPath();
-	ctx.arc(canvas.width / 2 + offset, canvas.height / 2, radius, 0, Math.PI * 2, true);
+	// Circle 2
+    ctx.beginPath();
+    ctx.arc(canvas.width / 2 + offset, canvas.height / 2, radius, 0, Math.PI * 2, true);
 	ctx.closePath();
 	ctx.fillStyle = color2;
 	ctx.fill();
 
-	//intersection
+	// Intersection
 	ctx.fillStyle = color3;
 	ctx.strokeStyle = color3;
 	var angle = Math.acos(offset / radius);
@@ -159,7 +171,7 @@ function draw() {
 	ctx.closePath();
 	ctx.stroke();
 
-	//text
+	// Text style
 	var font_size = radius / 8;
 	ctx.font = "bold " + font_size + "px sans-serif";
 	ctx.fillStyle = 'rgba(0,0,0,1)';
@@ -167,10 +179,10 @@ function draw() {
 	ctx.textAlign = "center";
 	var remainder = radius - offset;
 
-	//text for circle 1
-	//grab the text
+	// Text for circle 1
+	// Grab the text
 	var src1 = inputLeft.val();
-	// split and measure the text
+	// Split and measure the text
 	var src_ar = src1.split(" ");
 	var textw = measureWidestText(src_ar);
 	if (textw > offset * 2 - 30) {
@@ -178,9 +190,11 @@ function draw() {
 	} else {
 		drawMultiline(src_ar, canvas.width / 2 - offset - remainder, canvas.height / 2, font_size);
 	}
-	//text for circle 2
+
+	// Text for circle 2
+    // Grab the text
 	var src2 = inputRight.val();
-	// split the text
+	// Split and measure the text
 	var src_ar = src2.split(" ");
 	var textw = measureWidestText(src_ar);
 	if (textw > offset * 2 - 30) {
@@ -189,22 +203,22 @@ function draw() {
 		drawMultiline(src_ar, canvas.width / 2 + offset + remainder, canvas.height / 2, font_size);
 	}
 
-	//text for overlap
+	// Text for overlap
 	var src3 = inputCenter.val();
-	// split the text
+	// Split the text
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
-	//if the overlap is too small, the text should move up and an arrow should be drawn
+	// If the overlap is too small, the text should move up and an arrow should be drawn
 	if (textw > remainder + 30) {
-		//draw the multiline text
+		// Draw the multiline text
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2 - radius + font_size, font_size);
-		//draw the line
+		// Draw the line
 		ctx.beginPath();
 		ctx.moveTo(canvas.width / 2, canvas.height / 2 - radius + font_size * src_ar.length + 10);
 		ctx.lineTo(canvas.width / 2, canvas.height / 2 - 3);
 		ctx.closePath();
 		ctx.stroke();
-		//draw the arrow head
+		// Draw the arrow head
 		var awid = 10;
 		var ahei = 10;
 		ctx.beginPath();
@@ -221,7 +235,7 @@ function draw() {
 }
 
 function drawMultiline(src_ar, x, y, s) {
-	//draw it across multiple lines
+	// Draw it across multiple lines
 	var h = y + s - src_ar.length / 2 * s;
 	for (var i = 0; i < src_ar.length; i++) {
 		ctx.fillText(src_ar[i], x, h);
@@ -238,7 +252,7 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
-	//associate buttons with colors
+	// Associate buttons with colors
 	colors = [
 		["rgb(255,255,40)", "rgb(70,175,220)", "rgb(70,175,34)"],
 		["rgb(70,175,220)", "rgb(193,39,112)", "rgb(57,36,108)"],
@@ -256,16 +270,16 @@ $(document).ready(function() {
 			color2 = colors[index][1];
 			color3 = colors[index][2];
 
-            //Remove all active classes
+            // Remove all active classes
             if (!$(this).hasClass('active')) {
                 colorsArray.each(function(){
                     $(this).removeClass('active');
                 });
             }
-            //Add active class to clicked element
+            // Add active class to clicked element
             $(this).addClass('active');
 		});
-		//color diagram color selectors with canvas colors
+		// Color diagram color selectors with canvas colors
 		$(this).find('.a').css('background',colors[index][0]);
 		$(this).find('.b').css('background',colors[index][1]);
 	});
@@ -309,9 +323,6 @@ $(document).ready(function() {
 
     // Track changes to inputs and change the URL params based on new values
     // This could probably be a lot cleaner.
-    // Known Bugs: This state tracking prevents a select all and delete. It's
-    // kind of annoying, but we'll see if folks notice it. If they do we can
-    // work around it.
     var inputs = $("#input-left, #input-center, #input-right");
         inputs.bind("change paste", function() {
             var inputID = $(this).attr("id");
@@ -336,7 +347,7 @@ $(document).ready(function() {
             history.pushState(null, null, newURL);
         });
 
-    // Let's make our long URL with params, nice n short
+    // Setup async function to get links from Bit.ly
     function get_short_url(long_url, login, api_key, func)
     {
         $.getJSON(
@@ -354,9 +365,9 @@ $(document).ready(function() {
                 );
     }
 
-    // Create a short link when folks hover on the tweet button
+    // Create a short link when folks click on the tweet button
     $("#share").click(function(event) {
-        //Do not treat this like a link. Thanks.
+        // Do not treat this like a link. Thanks.
         event.preventDefault();
         var params = window.location.search;
         var long_url = "http://www.parseshare.com/den/"+params;
@@ -364,11 +375,11 @@ $(document).ready(function() {
         $(this).addClass("loading");
 
         get_short_url(long_url, login, api_key, function(short_url) {
-            //Assign long URL to be shared
+            // Assign long URL to be shared
             long_url = "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+short_url+"&hashtags=venndiagram&via=jsnhff";
-            //Remove that loading wheel
+            // Remove that loading wheel
             $("#share").removeClass("loading");
-            //Reload the page with the populated tweet all setup
+            // Reload the page with the populated tweet all setup
             location.assign(
                 long_url
             );
