@@ -47,33 +47,4 @@
         </div>
     </div>
 
-    <footer>
-    </footer>
-
-    <!-- Locally load jQuery files - remove on launch -->
-    <script type="text/javascript" src="js/libs/jquery-1.8.0.min.js"></script>
-    <script type="text/javascript" src="js/libs/jquery-ui-1.8.23.min.js"></script>
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-    <script src="jquery.ui.touch-punch.min.js"></script>
-    
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        $( "#spread-slider" ).slider({
-            value:50,
-            min: 0,
-            max: 100,
-            step: 10,
-            slide: function( event, ui ) {
-                $( "#spread-value" ).val( ui.value );
-            }
-        });
-        $( "#spread-value" ).val( $( "#spread-slider" ).slider( "value" ) );
-    });
-    </script>
-
 <?php include('includes/foot.php'); ?>

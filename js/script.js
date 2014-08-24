@@ -69,63 +69,6 @@ function setup() {
 	// Set the interval
 	interval = setInterval(draw, 50);
 
-    // Clean those URLs dog
-    function cleanURLParam(param) {
-        var word = param;
-        var plusCount = (word.match(/\+/g)) ? word.match(/\+/g) : 0;
-            word = decodeURIComponent(word);
-            $.each(plusCount, function(){
-                word = word.replace("+"," ");
-            });
-
-        return word;
-    }
-
-    // Count the number of params before we set them.
-    // This let's us choose to set fun random ones.
-    for (var j in query_string) query_string_count++;
-
-    for (var j in random_string) random_string_count++;
-    
-    // Now let's set the Venn Diagram values to the URL params! Weee!
-    if (query_string_count >= 1 && window.location.search.length > 0) {
-        $.each(query_string, function(key, value) {
-            if (key == "left") {
-                value = cleanURLParam(value);
-                inputLeft.attr("value", value);
-            } else if (key == "center") {
-                value = cleanURLParam(value);
-                inputCenter.attr("value", value)
-            } else if (key == "right") {
-                value = cleanURLParam(value);
-                inputRight.attr("value", value);
-            }
-        });
-    } else {
-        // Create a random number based on the preset Vennz
-        var number = Math.floor(Math.random() * random_string_count) + 1;
-
-        // Loop through and set the values of the Venn
-        $.each(random_string[[number]], function(key, value) {
-            if (key == "left") {
-                value = cleanURLParam(value);
-                inputLeft.attr("value", value);
-            } else if (key == "center") {
-                value = cleanURLParam(value);
-                inputCenter.attr("value", value)
-            } else if (key == "right") {
-                value = cleanURLParam(value);
-                inputRight.attr("value", value);
-            } else if (key == "spread") {
-                spread = (value != "") ? value : 50;
-            } else if (key == "color") {
-                color1 = colors[value][0];
-                color2 = colors[value][1];
-                color3 = colors[value][2];
-                $(colorSelectors[value]).addClass("active");
-            }
-        });
-    }
 }
 
 function draw() {
@@ -331,11 +274,79 @@ $(document).ready(function() {
         return query_string;
     } ();
 
+    // Clean those URLs dog
+    function cleanURLParam(param) {
+        var word = param;
+        var plusCount = (word.match(/\+/g)) ? word.match(/\+/g) : 0;
+            word = decodeURIComponent(word);
+            $.each(plusCount, function(){
+                word = word.replace("+"," ");
+            });
+
+        return word;
+    }
+
+    // Count the number of params before we set them.
+    // This let's us choose to set fun random ones.
+    for (var j in query_string) query_string_count++;
+
+    for (var j in random_string) random_string_count++;
+
+    // Now let's set the Venn Diagram values to the URL params! Weee!
+    if (query_string_count >= 1 && window.location.search.length > 0) {
+        $.each(query_string, function(key, value) {
+            if (key == "left") {
+                value = cleanURLParam(value);
+                inputLeft.attr("value", value);
+            } else if (key == "center") {
+                value = cleanURLParam(value);
+                inputCenter.attr("value", value)
+            } else if (key == "right") {
+                value = cleanURLParam(value);
+                inputRight.attr("value", value);
+            }
+        });
+    } else {
+        // Create a random number based on the preset Vennz
+        var number = Math.floor(Math.random() * random_string_count) + 1;
+
+        // Loop through and set the values of the Venn
+        $.each(random_string[[number]], function(key, value) {
+            if (key == "left") {
+                value = cleanURLParam(value);
+                inputLeft.attr("value", value);
+            } else if (key == "center") {
+                value = cleanURLParam(value);
+                inputCenter.attr("value", value)
+            } else if (key == "right") {
+                value = cleanURLParam(value);
+                inputRight.attr("value", value);
+            } else if (key == "spread") {
+                spread = (value != "") ? value : 50;
+            } else if (key == "color") {
+                color1 = colors[value][0];
+                color2 = colors[value][1];
+                color3 = colors[value][2];
+                $(colorSelectors[value]).addClass("active");
+            }
+        });
+    }
+
+    // Initiate the slider with some boundaries and steps
+    $( "#spread-slider" ).slider({
+        value: spread,
+        min: 0,
+        max: 100,
+        step: 10,
+        slide: function( event, ui ) {
+            $( "#spread-value" ).val( ui.value );
+        }
+    });
 
     // Track changes to inputs and change the URL params based on new values
     // This could probably be a lot cleaner.
     var inputs = $("#input-left, #input-center, #input-right");
-        inputs.bind("change paste", function() {
+        inputs.bind("change paste focus", function() {
             var inputID = $(this).attr("id");
             var value = "";
                 if (inputID == "input-left") {
