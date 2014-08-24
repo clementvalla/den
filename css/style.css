@@ -238,7 +238,7 @@ header {
 
 @media (max-width : 480px) {
     .brand {
-        font-size: 1.5em;
+        font-size: 1.25em;
     }
     body.blur #main, body.blur header {
         -webkit-filter: blur(20px);
