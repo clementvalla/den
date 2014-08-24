@@ -361,7 +361,6 @@ $(document).ready(function() {
         }
     });
     // Bind mobile slider button actions
-    console.log(mobileSpreadButtons);
     mobileSpreadButtons.bind("click", function() {
         var thisID = $(this);
         var spreadValue = inputSpread.val();
