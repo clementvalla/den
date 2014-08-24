@@ -24,10 +24,12 @@ var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
 var shortURL = "";
-var inputLeft = $("input#input-left");
-var inputCenter = $("input#input-center");
-var inputRight = $("input#input-right");
-var inputSpread = $("input#spread-value");
+// Clean up the inputs to just make them an Array?
+var inputs = $("#input-left, #input-center, #input-right, #spread-slider, .color-selector");
+var inputLeft = $("#input-left");
+var inputCenter = $("#input-center");
+var inputRight = $("#input-right");
+var inputSpread = $("#spread-value");
 
 var random_string_count = "";
 var random_string = {
@@ -229,7 +231,7 @@ $(document).ready(function() {
 
             // Remove all active classes
             if (!$(this).hasClass('active')) {
-                colorsArray.each(function(){
+                colorSelectors.each(function(){
                     $(this).removeClass('active');
                 });
             }
@@ -304,6 +306,13 @@ $(document).ready(function() {
             } else if (key == "right") {
                 value = cleanURLParam(value);
                 inputRight.attr("value", value);
+            } else if (key == "spread") {
+                spread = (value != "") ? value : 50;
+            } else if (key == "color") {
+                color1 = colors[value][0];
+                color2 = colors[value][1];
+                color3 = colors[value][2];
+                $(colorSelectors[value]).addClass("active");
             }
         });
     } else {
@@ -342,32 +351,78 @@ $(document).ready(function() {
             $( "#spread-value" ).val( ui.value );
         }
     });
+    // Rewrite the spread URL param on Slider change
+    $("#spread-slider").slider().on("slidechange", function(){
+        console.log("slider change");
+        updateURL("spread", spread);
+    });
+
+    function updateURL(key, value){
+        var leftVal = inputLeft.val(),
+            centerVal = inputCenter.val(),
+            rightVal = inputRight.val(),
+            spreadVal = spread,
+            colorVal;
+
+        if (key == "left") {
+            if (value != inputLeft.val()) {
+                leftVal = value;
+            } else {
+                leftVal = inputLeft.val();
+            }
+        } else if (key == "center") {
+            if (value != inputCenter.val()) {
+                centerVal = value;
+            } else {
+                centerVal = inputCenter.val();
+            }
+        } else if (key == "right") {
+            if (value != inputRight.val()) {
+                rightVal = value;
+            } else {
+                rightVal = inputRight.val();
+            }
+        } else if (key == "spread") {
+            if (value != spread) {
+                spreadVal = value;
+            } else {
+                spreadVal = spread;
+            }
+        } else if (key == "color") {
+            if (value != inputLeft.val()) {
+                colorVal = value;
+            } else {
+                leftVal = inputLeft.val();
+            }
+        }
+        var map = {
+            left: leftVal,
+            center: centerVal,
+            right: rightVal,
+            spread: spreadVal,
+            color: 0
+        };
+        newURL = $.param(map);
+        var newURL = "?" + newURL;
+        history.pushState(null, null, newURL);
+    }
 
     // Track changes to inputs and change the URL params based on new values
     // This could probably be a lot cleaner.
-    var inputs = $("#input-left, #input-center, #input-right");
-        inputs.bind("change paste focus", function() {
-            var inputID = $(this).attr("id");
-            var value = "";
-                if (inputID == "input-left") {
-                    value = inputLeft.val();
-                    inputLeft.attr("value", value);
-                } else if (inputID == "input-center") {
-                    value = inputCenter.val();
-                    inputCenter.attr("value", value);
-                } else if (inputID == "input-right") {
-                    value = inputRight.val();
-                    inputRight.attr("value", value);
-                }
-            var map = {
-                left: inputLeft.val(),
-                center: inputCenter.val(),
-                right: inputRight.val()
-            };
-            newURL = $.param(map);
-            var newURL = "?" + newURL;
-            history.pushState(null, null, newURL);
-        });
+    inputs.bind("change paste focus trigger", function() {
+        var inputID = $(this).attr("id");
+        var inputValue = $(this).val();
+        if (inputID == "input-left") {
+            inputLeft.attr("value", inputValue);
+            updateURL("left", inputValue);
+        } else if (inputID == "input-center") {
+            inputCenter.attr("value", inputValue);
+            updateURL("center", inputValue);
+        } else if (inputID == "input-right") {
+            inputRight.attr("value", inputValue);
+            updateURL("right", inputValue);
+        }
+    });
 
     // Setup async function to get links from Bit.ly
     function get_short_url(long_url, login, api_key, func)
