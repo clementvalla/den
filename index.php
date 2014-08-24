@@ -22,13 +22,13 @@
             </div>
             <div class="row">
                 <div id="spread" class="col col-6 field">
-                    <label>Spread</label>
+                    <label>Overlap</label>
                     <div class="slide-control mobile-hide">
                         <div id="spread-slider" class="slider"></div>
                     </div>
                     <div class="slide-buttons mobile-show">
-                        <a id="spread-increase" class="button button-box-black button-small">Increase</a>
-                        <a id="spread-decrease" class="button button-box-black button-small">Decrease</a>
+                        <a id="spread-increase" class="button button-box-black button-small">&ndash;</a>
+                        <a id="spread-decrease" class="button button-box-black button-small">+</a>
                     </div>
                     <input type="hidden" name="spread" id="spread-value" value=""/>
                 </div>
