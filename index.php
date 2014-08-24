@@ -30,11 +30,11 @@
                     <div class="slide-control">
                         <div id="spread-slider" class="slider"></div>
                     </div>
-                    <input type="hidden" name="spread" id="spread-value" value="50"/>
+                    <input type="hidden" name="spread" id="spread-value" value=""/>
                 </div>
                 <ul class="col col-6 colors m0 clearfix">
                     <li class="label">Colors</li>
-                    <li id="select-1" class="color-selector active"><span class="a"></span><span class="b"></span></li>
+                    <li id="select-1" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-2" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-3" class="color-selector"><span class="a"></span><span class="b"></span></li>
                     <li id="select-4" class="color-selector"><span class="a"></span><span class="b"></span></li>

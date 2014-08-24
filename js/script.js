@@ -3,9 +3,20 @@ var interval;
 var spread;
 var urlSpreadSet = true;
 var radius = 150;
-var color1 = "rgb(255,255,40)";
-var color2 = "rgb(70,175,220)";
-var color3 = "rgb(70,175,34)";
+var colorSelectors = $(".color-selector");
+var colors = [
+                ["rgb(255,255,40)", "rgb(70,175,220)", "rgb(70,175,34)"],
+                ["rgb(70,175,220)", "rgb(193,39,112)", "rgb(57,36,108)"],
+                ["rgb(53,91,250)", "rgb(137,233,129)", "rgb(33,89,128)"],
+                ["rgb(96,219,160)", "rgb(227,82,133)", "rgb(58,97,105)"],
+                ["rgb(255,106,0)", "rgb(140,255,224)", "rgb(181,118,4)"],
+                ["rgb(237,204,170)", "rgb(191,215,118)", "rgb(180,171,76)"],
+                ["rgb(232,155,0)", "rgb(0,214,220)", "rgb(0,135,25)"],
+                ["rgb(222,216,173)", "rgb(78,100,255)", "rgb(57,92,177)"],
+            ];
+var color1 = colors[0][0];
+var color2 = colors[0][1];
+var color3 = colors[0][2];
 var is_mobile = false;
 var query_string = {};
 var query_string_count = "";
@@ -24,25 +35,29 @@ var random_string = {
         "left":"Nobel Peace Prize Winner",
         "center":"Barack Obama",
         "right":"Emmay Award Winner",
-        "spread": 50
+        "spread": 50,
+        "color": 0
     },
     "2": {
         "left":"Things I Like",
         "center":"Things I Used to Like",
         "right":"Things You Like",
-        "spread": 70
+        "spread": 70,
+        "color": 1
     },
     "3": {
         "left":"Movies",
         "center":"Shitty Movies",
         "right":"Vin Diesel",
-        "spread": 30
+        "spread": 30,
+        "color": 5
     },
     "4": {
         "left":"Art",
         "center":"Postinternet Art",
         "right":"Net.Art",
-        "spread": 10
+        "spread": 10,
+        "color": 7
     }
 };
 
@@ -103,6 +118,11 @@ function setup() {
                 inputRight.attr("value", value);
             } else if (key == "spread") {
                 spread = (value != "") ? value : 50;
+            } else if (key == "color") {
+                color1 = colors[value][0];
+                color2 = colors[value][1];
+                color3 = colors[value][2];
+                $(colorSelectors[value]).addClass("active");
             }
         });
     }
@@ -253,19 +273,13 @@ function measureWidestText(t_ar) {
 
 $(document).ready(function() {
 	// Associate buttons with colors
-	colors = [
-		["rgb(255,255,40)", "rgb(70,175,220)", "rgb(70,175,34)"],
-		["rgb(70,175,220)", "rgb(193,39,112)", "rgb(57,36,108)"],
-		["rgb(53,91,250)", "rgb(137,233,129)", "rgb(33,89,128)"],
-		["rgb(96,219,160)", "rgb(227,82,133)", "rgb(58,97,105)"],
-		["rgb(255,106,0)", "rgb(140,255,224)", "rgb(181,118,4)"],
-		["rgb(237,204,170)", "rgb(191,215,118)", "rgb(180,171,76)"],
-		["rgb(232,155,0)", "rgb(0,214,220)", "rgb(0,135,25)"],
-		["rgb(222,216,173)", "rgb(78,100,255)", "rgb(57,92,177)"], ];
+	colorSelectors.each(function(index) {
+		// Color diagram color selectors with canvas colors
+		$(this).find('.a').css('background',colors[index][0]);
+		$(this).find('.b').css('background',colors[index][1]);
 
-	$('.color-selector').each(function(index) {
-		$(this).click(function() {
-            var colorsArray = $('.color-selector');
+	    // Bind click to each color selector button
+        $(this).click(function() {
 			color1 = colors[index][0];
 			color2 = colors[index][1];
 			color3 = colors[index][2];
@@ -279,9 +293,6 @@ $(document).ready(function() {
             // Add active class to clicked element
             $(this).addClass('active');
 		});
-		// Color diagram color selectors with canvas colors
-		$(this).find('.a').css('background',colors[index][0]);
-		$(this).find('.b').css('background',colors[index][1]);
 	});
 
 	//bind the share button
