@@ -2,6 +2,9 @@
    Author: Jason Huff & Clement Valla
    ========================================================================== */
 /* @group navigation */
+.border-box {
+    box-sizing: border-box;
+}
 header {
     position: absolute;
     top: 0;
@@ -186,9 +189,19 @@ header {
     .menu-icon {
         display: none;
     }
+    .venn-menu-overlay .header {
+        display: none;
+    }
 /* @end */
 
 @media (max-width: 768px) {
+    body.overlay .blur {
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+    }
     header {
         width: 100%;
     }
@@ -203,7 +216,6 @@ header {
         position: relative;
     }
     .menu {
-        padding-top: 15px;
         min-width: inherit;
     }
         .menu .row {
@@ -233,8 +245,31 @@ header {
                 .menu .colors li.label {
                     height: auto;
                 }
-        .menu #mobile-share {
-            box-sizing: border-box;
+        /* Mobile overlay edit menu */
+        .venn-menu-overlay {
+            display: none;
+        }
+        .venn-menu-overlay.show {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.75);
+        }
+        .venn-menu-overlay.show .header {
+            display: table;
+        }
+        .venn-menu-overlay .header {
+            background: rgba(0,0,0,0.8);
+            color: #FFF;
+        }
+        .venn-menu-overlay .header a {
+            color: #FFF;
+        }
+        .venn-menu-overlay .slide-control {
+            display: none;
         }
 }
 

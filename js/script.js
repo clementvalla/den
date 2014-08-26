@@ -18,6 +18,7 @@ var color1 = colors[0][0];
 var color2 = colors[0][1];
 var color3 = colors[0][2];
 var is_mobile = false;
+var editOverlay = $("#js-overlay");
 var query_string = {};
 var query_string_count = "";
 var login = "jsnhff";
@@ -223,6 +224,20 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
+    // Bind click to fire overlay and close it
+    $("#js-edit").bind("click", function() {
+        editOverlay.addClass("show");
+        $("body").addClass("overlay");
+    });
+    $("#js-close").bind("click", function(e) {
+        e.preventDefault();
+        editOverlay.removeClass("show");
+        $("body").removeClass("overlay");
+
+        return false;
+    });
+
+
     // Bind click to each color selector button
     function changeColor(index) {
         color1 = colors[index][0];
