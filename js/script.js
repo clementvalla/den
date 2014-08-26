@@ -83,13 +83,19 @@ function setup() {
 function draw() {
 	// Set the canvas size
 	// Maintain an aspect ration of 3:2
-	canvas.width = canvas.width;
-	canvas.width = window.innerWidth - 10;
+    if (canvas.width >= 960) {
+        canvasWidth = 960;
+    } else {
+        canvasWidth = canvas.width;
+    }
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+	canvas.width = canvasWidth;
 	canvas.height = window.innerHeight - 10;
 	var f = Math.min(canvas.width * 2, canvas.height * 3);
-	canvas.width = f / 2;
-	canvas.height = f / 3;
-	canvas.style.marginLeft = (window.innerWidth - canvas.width) / 2 + "px";
+	canvas.width = (f / 2)*1.75;
+	canvas.height = (f / 3)*1.75;
+	//canvas.style.marginLeft = (window.innerWidth - canvas.width) / 2 + "px";
 	radius = canvas.width * 0.22;
 
     // Update the spread
