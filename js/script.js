@@ -223,30 +223,46 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
+    // Bind click to each color selector button
+    function changeColor(index) {
+        color1 = colors[index][0];
+        color2 = colors[index][1];
+        color3 = colors[index][2];
+
+        colorS = $(colorSelectors[index]);
+        // Remove all active classes
+        if (!$(colorS).hasClass('active')) {
+            colorSelectors.each(function(){
+                $(this).removeClass('active');
+            });
+        }
+        // Add active class to clicked element
+        $(colorS).addClass('active');
+    }
+
 	// Associate buttons with colors
 	colorSelectors.each(function(index) {
-		// Color diagram color selectors with canvas colors
-		$(this).find('.a').css('background',colors[index][0]);
-		$(this).find('.b').css('background',colors[index][1]);
+        // Color diagram color selectors with canvas colors
+        $(this).find('.a').css('background',colors[index][0]);
+        $(this).find('.b').css('background',colors[index][1]);
 
-	    // Bind click to each color selector button
         $(this).click(function() {
-			color1 = colors[index][0];
-			color2 = colors[index][1];
-			color3 = colors[index][2];
+            changeColor(index);
+        });
+    });
 
-            // Remove all active classes
-            if (!$(this).hasClass('active')) {
-                colorSelectors.each(function(){
-                    $(this).removeClass('active');
-                });
-            }
-            // Add active class to clicked element
-            $(this).addClass('active');
-		});
-	});
+    // Bind color change event on mobile layout
+    $("#color-change").bind("click", function(){
+        colorVal = parseInt(colorVal)+1;
+        if(colorVal >= (colors.length-1)){
+            colorVal = 0;
+        }
+        changeColor(colorVal);
+        updateURL("color", colorVal);
+        console.log(colorVal);
+    });
 
-	//bind the share button
+    //bind the share button
 	//$("#share").click(function() {
 	//	//get the canvas
 	//	var canvasd = document.getElementById("mcanvas").toDataURL();
@@ -495,6 +511,7 @@ $(document).ready(function() {
 
         return false;
     });
+
 
 	setup();
 });
