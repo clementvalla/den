@@ -380,11 +380,15 @@ $(document).ready(function() {
         var spreadValue = inputSpread.val();
 
         if (thisID.is("#spread-increase")) {
-            spreadValue = parseInt(spreadValue)+10;
+            if (spreadValue < 100) {
+                spreadValue = parseInt(spreadValue)+10;
+            }
             inputSpread.attr("value",spreadValue);
             $("#spread-slider a").css("left", spreadValue+"%");
         } else if (thisID.is("#spread-decrease")) {
-            spreadValue = parseInt(spreadValue)-10;
+            if (spreadValue > 0) {
+                spreadValue = parseInt(spreadValue)-10;
+            }
             inputSpread.attr("value",spreadValue);
             $("#spread-slider a").css("left", spreadValue+"%");
         }
