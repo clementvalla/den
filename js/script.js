@@ -259,7 +259,6 @@ $(document).ready(function() {
         }
         changeColor(colorVal);
         updateURL("color", colorVal);
-        console.log(colorVal);
     });
 
     //bind the share button
@@ -336,7 +335,6 @@ $(document).ready(function() {
                 color3 = colors[value][2];
                 $(colorSelectors[value]).addClass("active");
                 colorVal = value;
-                console.log("Value existing: "+value);
             }
         });
     } else {
@@ -357,7 +355,6 @@ $(document).ready(function() {
             } else if (key == "spread") {
                 spread = (value != "") ? value : 50;
             } else if (key == "color") {
-                console.log("Value: "+value);
                 color1 = colors[value][0];
                 color2 = colors[value][1];
                 color3 = colors[value][2];
@@ -399,7 +396,6 @@ $(document).ready(function() {
 
     // Update URL function
     function updateURL(key, value){
-        console.log("Update color: "+colorVal);
         var leftVal = inputLeft.val(),
             centerVal = inputCenter.val(),
             rightVal = inputRight.val(),
