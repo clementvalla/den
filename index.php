@@ -21,7 +21,7 @@
                 </div>          
             </div>
             <div class="row">
-                <div id="spread" class="mobile-col col-6 field">
+                <div id="spread" class="mobile-col mobile-col-6 field">
                     <label>Overlap</label>
                     <div class="slide-control mobile-hide">
                         <div id="spread-slider" class="slider"></div>
@@ -32,9 +32,9 @@
                     </div>
                     <input type="hidden" name="spread" id="spread-value" value=""/>
                 </div>
-                <div class="mobile-col col-6 mobile-show">
-                    <label>Color</label>
-                    <a id="color-change" class="button button-box-black button-small">Change</a>
+                <div class="mobile-col mobile-col-6 mobile-show">
+                    <label class="right-align">Color</label>
+                    <a id="color-change" class="button button-box-black button-small right">Change</a>
                 </div>
                 <ul class="col col-6 colors m0 clearfix mobile-hide">
                     <li class="label">Colors</li>
