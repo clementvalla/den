@@ -77,7 +77,6 @@ function setup() {
 
 	// Set the interval
 	interval = setInterval(draw, 50);
-
 }
 
 function draw() {
@@ -367,20 +366,25 @@ $(document).ready(function() {
             if (key == "left") {
                 value = cleanURLParam(value);
                 inputLeft.attr("value", value);
+                updateURL(key, value);
             } else if (key == "center") {
                 value = cleanURLParam(value);
                 inputCenter.attr("value", value)
+                updateURL(key, value);
             } else if (key == "right") {
                 value = cleanURLParam(value);
                 inputRight.attr("value", value);
+                updateURL(key, value);
             } else if (key == "spread") {
                 spread = (value != "") ? value : 50;
+                updateURL(key, value);
             } else if (key == "color") {
                 color1 = colors[value][0];
                 color2 = colors[value][1];
                 color3 = colors[value][2];
                 $(colorSelectors[value]).addClass("active");
                 colorVal = value;
+                updateURL(key, value);
             }
         });
     }
