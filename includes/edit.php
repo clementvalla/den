@@ -1,7 +1,7 @@
 <div id="js-overlay" class="venn-menu-overlay">
     <div class="header mb1 py1 px2 mobile-table border-box">
         <div class="mobile-table-cell">
-            <h3 class="m0">Edit Words</h3>
+            <h3 class="m0">Edit Diagram</h3>
         </div>
         <div class="mobile-table-cell right-align">
             <a id="js-close" class="block" href="#">Done</a>
