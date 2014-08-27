@@ -28,14 +28,14 @@
                 <div id="spread-slider" class="slider"></div>
             </div>
             <div class="slide-buttons mobile-show">
-                <a id="spread-increase" class="button button-box-black button-small">&ndash;</a>
-                <a id="spread-decrease" class="button button-box-black button-small">+</a>
+                <a id="spread-increase" class="button button-box-black">- 10</a>
+                <a id="spread-decrease" class="button button-box-black">+ 10</a>
             </div>
             <input type="hidden" name="spread" id="spread-value" value=""/>
         </div>
         <div class="mobile-col mobile-col-6 mobile-show">
             <label class="right-align">Color</label>
-            <a id="color-change" class="button button-box-black button-small right">Change</a>
+            <a id="color-change" class="button button-box-black right">Change</a>
         </div>
         <ul class="col col-6 colors m0 clearfix mobile-hide">
             <li class="label">Colors</li>

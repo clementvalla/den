@@ -8,12 +8,12 @@
         <div id="venn-menu" class="menu">
             <div class="row mobile-show blur">
                 <div class="mobile-col full-width mobile-show py1">
-                    <a id="js-edit" class="button button-box-black button-small center full-width border-box">Edit Diagram</a>
+                    <a id="js-edit" class="button button-box-black center full-width border-box">Edit Diagram</a>
                 </div>
             </div>
             <div class="row mobile-show blur">
                 <div class="mobile-col full-width mobile-show py1">
-                    <a id="mobile-share" class="button button-box-black button-small center full-width border-box">
+                    <a id="mobile-share" class="button button-box-black center full-width border-box">
                         <svg class="icon icon-tweet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                             <path d="M2 4 C6 8 10 12 15 11 A6 6 0 0 1 22 4 A6 6 0 0 1 26 6 A8 8 0 0 0 31 4 A8 8 0 0 1 28 8 A8 8 0 0 0 32 7 A8 8 0 0 1 28 11 A18 18 0 0 1 10 30 A18 18 0 0 1 0 27 A12 12 0 0 0 8 24 A8 8 0 0 1 3 20 A8 8 0 0 0 6 19.5 A8 8 0 0 1 0 12 A8 8 0 0 0 3 13 A8 8 0 0 1 2 4"></path>
                         </svg>
