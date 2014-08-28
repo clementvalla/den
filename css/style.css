@@ -229,7 +229,7 @@ header {
         margin-top: 0;
     }
     .menu-wrapper {
-        position: relative;
+        position: inherit;
     }
     .menu {
         min-width: inherit;
@@ -267,7 +267,7 @@ header {
         }
         .venn-menu-overlay.show {
             display: block;
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             right: 0;

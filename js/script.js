@@ -229,6 +229,7 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
+    // Fade out the loading wheel once we've got everything
     $("#js-pre-load").fadeOut("slow");
 
     // Bind click to fire overlay and close it

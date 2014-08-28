@@ -29,7 +29,7 @@
             </div>
             <div class="slide-buttons mobile-show">
                 <a id="spread-increase" class="button button-box-black">+</a>
-                <a id="spread-decrease" class="button button-box-black">-</a>
+                <a id="spread-decrease" class="button button-box-black">&ndash;</a>
             </div>
             <input type="hidden" name="spread" id="spread-value" value=""/>
         </div>
