@@ -1,3 +1,4 @@
+<?php $page_name = 'save' ?>
 <?php
 
 if (!function_exists('file_put_contents')) {
@@ -43,8 +44,8 @@ if (!file_put_contents($pngFile, base64_decode($uri))){?>
 		$thumb->adaptiveResize(600, 600)->save('diagrams_thumb/'.$pngFile);
 
 	?>
-	<?php include 'includes/head.php';?>
-	<?php $venn = $pngFile;?>
+    <?php include 'includes/head.php';?>
+    <?php $venn = $pngFile;?>
 	<?php include 'includes/venn-single-display.php'; ?>
 	<?php include 'includes/foot.php';?>
 <?php } ?>

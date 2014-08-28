@@ -20,7 +20,9 @@
 	<script src="js/libs/modernizr-2.5.3.min.js"></script>
 </head>
 
-<body>
+
+<body <?php if ($page_name == 'save') { ?>id="save"<?php } ?>>
+
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	<header class="container">
         <h1 class="brand ml2 mt1 mobile-center"><a href="index.php">The Venn <br class="mobile-hide">Diagram <br class="mobile-hide">Generator</a></h1>
@@ -31,4 +33,15 @@
             <svg class="icon icon-loading" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" class="geomicon tile-small geomicon-loading"><g><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(0 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(45 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.125s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(90 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.25s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(135 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.375s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(180 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.5s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(225 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.675s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(270 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.75s"></animate></path><path opacity=".1" d="M14 0 H18 V8 H14 z" transform="rotate(315 16 16)"><animate attributeName="opacity" from="1" to=".1" dur="1s" repeatCount="indefinite" begin="0.875s"></animate></path></g></svg>
           Tweet
         </a>
+        <?php if ($page_name == 'index') { ?>
+            <br>
+            <a id="save" class="button button-box-black button-small mt2 ml2 mobile-hide">
+                <form action="venn-save.php" method="post" id="form" class="mobile-show mobile-hide"/>
+                    <input type="hidden" name="data" id="data" />
+                    <input type="hidden" name="title" id="title" />
+                    <input type="submit" value="Submit">
+                </form>
+                Archive
+            </a>
+        <?php } ?>
 	</header>

@@ -37,6 +37,22 @@ header {
 .loading .icon-tweet {
     display: none
 }
+.pre-load {
+    color: #333;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #FFF;
+    z-index: 501;
+}
+.pre-load .icon-loading {
+    display: block;
+    font-size: 3em;
+    margin: 0 auto;
+    padding-top: 50%;
+}
 /* @end */
 
 /* @group canvas */

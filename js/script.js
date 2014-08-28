@@ -229,6 +229,8 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
+    $("#js-pre-load").fadeOut("slow");
+
     // Bind click to fire overlay and close it
     $("#js-edit").bind("click", function() {
         editOverlay.addClass("show");
@@ -242,6 +244,7 @@ $(document).ready(function() {
         return false;
     });
 
+    // Get an image of the canvas
 
     // Bind click to each color selector button
     function changeColor(index) {
@@ -281,18 +284,18 @@ $(document).ready(function() {
         updateURL("color", colorVal);
     });
 
-    //bind the share button
-	//$("#share").click(function() {
-	//	//get the canvas
-	//	var canvasd = document.getElementById("mcanvas").toDataURL();
-	//	$("#data").val(canvasd);
+    // Bind the save button and submit form
+	$("#save").click(function() {
+        //get the canvas
+        var imageData = document.getElementById("mcanvas").toDataURL();
+        $("#data").val(imageData);
 
-	//	//prepare the title
-	//	$("#title").val($("input#overlap").val().replace(" ", "_"));
+        //prepare the title
+        $("#title").val(inputCenter.val().replace(" ", "_"));
 
-	//	//submit
-	//	$("#frm").trigger('submit');
-	//});
+        //submit
+        $("#form").trigger('submit');
+	});
 
     var QueryString = function () {
         // This function is anonymous, is executed immediately and
@@ -536,7 +539,6 @@ $(document).ready(function() {
 
         return false;
     });
-
 
 	setup();
 });
