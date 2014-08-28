@@ -24,7 +24,7 @@
 <body <?php if ($page_name == 'save') { ?>id="save"<?php } ?> class="oh">
 
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<header class="container">
+	<header class="container blur">
         <h1 class="brand ml2 mt1 mobile-center"><a href="index.php">The Venn <br class="mobile-hide">Diagram <br class="mobile-hide">Generator</a></h1>
         <a id="share" class="button button-box-black button-small ml2 mobile-hide">
             <svg class="icon icon-tweet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
