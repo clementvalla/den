@@ -50,8 +50,7 @@ header {
 .pre-load .icon-loading {
     display: block;
     font-size: 3em;
-    margin: 0 auto;
-    padding-top: 50%;
+    margin: 25% auto;
 }
 /* @end */
 
