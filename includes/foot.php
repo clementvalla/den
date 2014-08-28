@@ -1,6 +1,6 @@
     <footer>
         <!-- Locally load jQuery files -->
-        <script type="text/javascript" src="js/libs/jquery-1.8.0.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/libs/jquery-ui-1.8.23.min.js"></script>
         <script type="text/javascript" src="js/libs/jquery.ui.touch-punch.min.js"></script>
         <script src="js/plugins.js"></script>
