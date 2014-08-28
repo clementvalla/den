@@ -229,7 +229,7 @@ function measureWidestText(t_ar) {
 }
 
 $(document).ready(function() {
-    // Fade out the loading wheel once we've got everything
+    // Fade out the loading wheel once we have it all
     $("#js-pre-load").fadeOut("slow");
 
     // Bind click to fire overlay and close it
@@ -469,8 +469,8 @@ $(document).ready(function() {
             spread: spreadVal,
             color: colorVal
         };
-        newURL = $.param(map);
-        var newURL = "?" + newURL;
+        var newURL = $.param(map);
+        newURL = "?" + newURL;
         history.pushState(null, null, newURL);
     }
 
