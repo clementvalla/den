@@ -25,6 +25,11 @@
                 </a>
                 </div>
             </div>
+            <div class="row mobile-show blur">
+                <div class="mobile-col full-width mobile-show py1">
+                    <a href="http://parseshare.com/den/venn-library.php" class="button button-box-black center full-width border-box">View Library</a>
+                </div>
+            </div>
             <?php include('includes/edit.php'); ?>
     </div>
 </div>
