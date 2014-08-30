@@ -164,7 +164,7 @@ header {
     border-bottom: 2px dotted #333;
     border-radius: 0;
 }
-    #spread-slider a {
+    #spread-slider span {
         top: -8px;
         width: 21px;
         height: 21px;
@@ -172,17 +172,17 @@ header {
         border: none;
         background: #666;
     }
-        #spread-slider a:hover {
+        #spread-slider span:hover {
             cursor: pointer;
             cursor: -webkit-grab;
             background: #333;
         }
-        #spread-slider a:focus {
+        #spread-slider span:focus {
             cursor: pointer;
             cursor: -webkit-grab;
             outline: none;
         }
-        #spread-slider a:active {
+        #spread-slider span:active {
             cursor: pointer;
             cursor: -webkit-grabbing;
             background: #333;
@@ -207,6 +207,16 @@ header {
     .venn-menu-overlay .header {
         display: none;
     }
+
+ /* If touch, change hovers */
+.is-touch .button-box-black:hover {
+    background-color: #FFF;
+    color: #333;
+}
+.is-touch .button-box-black:active {
+    background-color: #333;
+    color: #FFF;
+}
 /* @end */
 
 @media (max-width: 768px) {

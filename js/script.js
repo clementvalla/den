@@ -70,6 +70,7 @@ var random_string = {
     }
 };
 
+
 function setup() {
 	// Set the canvas
 	canvas = document.getElementById("mcanvas");
@@ -235,6 +236,12 @@ window.addEventListener('load', function() {
 $(document).ready(function() {
     // Fade out the loading wheel once we have it all
     $("#js-pre-load").fadeOut("slow");
+
+    // Is this a touch device?
+    var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
+    if (supportsTouch = true) {
+        $("body").addClass("is-touch");
+    }
 
     // Bind click to fire overlay and close it
     $("#js-edit").bind("click", function() {
