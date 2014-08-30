@@ -43,7 +43,7 @@ var random_string = {
     "1": {
         "left":"Nobel Peace Prize Winner",
         "center":"Barack Obama",
-        "right":"Emmay Award Winner",
+        "right":"Emmy Award Winner",
         "spread": 50,
         "color": 0
     },
