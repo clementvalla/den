@@ -24,6 +24,10 @@
     <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-144x144-precomposed.png">
+    <link rel="apple-touch-startup-image" href="/startup-image.png">
+    <meta name="apple-mobile-web-app-title" content="Venn Diagrams">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
 </head>
 
 
