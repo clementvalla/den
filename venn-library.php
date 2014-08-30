@@ -30,7 +30,7 @@ if ( $handle = opendir( $dir ) ) {
         } else if ($count % 3 == 0) { 
             echo '</div><div class="row">';
         } else {
-            echo '<div class="col col-6 thumbnail '.$count.' left"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
+            echo '<div class="col col-6 center thumbnail '.$count.'"><a href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
         }
         $count++;
 	}

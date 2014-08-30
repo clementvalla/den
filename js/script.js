@@ -74,10 +74,14 @@ var random_string = {
 function setup() {
 	// Set the canvas
 	canvas = document.getElementById("mcanvas");
-	ctx = canvas.getContext("2d");
-
-	// Set the interval
-	interval = setInterval(draw, 50);
+    console.log(canvas);
+    if (canvas != null) {
+        ctx = canvas.getContext("2d");
+        // Set the interval
+        interval = setInterval(draw, 50);
+    } else {
+        console.log("Thanks for visiting the library.");
+    }
 }
 
 function draw() {
