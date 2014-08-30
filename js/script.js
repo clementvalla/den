@@ -228,16 +228,11 @@ function measureWidestText(t_ar) {
 	return dim;
 }
 
-
 window.addEventListener('load', function() {
         new FastClick(document.body);
 }, false);
 
 $(document).ready(function() {
-    function is_touch_device() {
-        console.log("touhy");
-          return !!('ontouchstart' in window);
-    }
     // Fade out the loading wheel once we have it all
     $("#js-pre-load").fadeOut("slow");
 
