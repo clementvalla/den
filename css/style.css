@@ -220,6 +220,11 @@ header {
     background-color: #333;
     color: #FFF;
 }
+/* Remove inputs styles on mobile Safari and Chrome */
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
 /* @end */
 
 @media (max-width: 768px) {
