@@ -227,7 +227,11 @@ input {
     border-radius: 0;
 }
 /* @end */
-
+@media (max-width: 1000px) {
+    .menu-wrapper {
+        position: inherit;
+    }
+}
 @media (max-width: 768px) {
     body.overlay .blur {
         -webkit-filter: blur(5px);
@@ -261,6 +265,7 @@ input {
             font-size: 1.25em;
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
+            padding: 0;
         }
             .menu .row label {
                 display: block;

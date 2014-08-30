@@ -239,7 +239,7 @@ $(document).ready(function() {
 
     // Is this a touch device?
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
-    if (supportsTouch = true) {
+    if (supportsTouch === true) {
         $("body").addClass("is-touch");
     }
 
