@@ -107,7 +107,7 @@ header {
             height: 27px;
             width: 35px;
             margin: 0 8px 3px 0;
-            border-bottom: 2px solid #FFF;
+            border-bottom: 2px solid rgba(255,255,255,0.0);
         }
             .menu .colors li:last-of-type {
                 margin-right: 0;
@@ -163,6 +163,7 @@ header {
     border-top: none;
     border-bottom: 2px dotted #333;
     border-radius: 0;
+    background: none;
 }
     #spread-slider span {
         top: -8px;
