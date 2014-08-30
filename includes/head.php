@@ -11,7 +11,10 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<meta name="viewport" content="width=device-width">
+    <!--
+        <meta name="viewport" content="width=device-width">
+    -->
+    <meta name="viewport" content="maximum-scale=1">
 
 	<link rel="stylesheet" href="css/jquery-ui-1.8.23.custom.css">
     <link rel="stylesheet" href="css/basscss.css">
