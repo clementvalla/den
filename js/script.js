@@ -538,7 +538,7 @@ $(document).ready(function() {
 
         get_short_url(long_url, login, api_key, function(short_url) {
             // Assign long URL to be shared
-            long_url = "https://twitter.com/intent/tweet?text=I made a Venn Diagram! &url="+short_url+"&hashtags=venndiagram&via=VennDiagramer";
+            long_url = "https://twitter.com/intent/tweet?text=\? plus \? \= "+inputCenter.val()+" --> &url="+short_url+"&hashtags=venndiagram";
             // Remove that loading wheel
             button.removeClass("loading");
             // Reload the page with the populated tweet all setup
