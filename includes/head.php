@@ -20,7 +20,10 @@
     <link rel="stylesheet" href="css/basscss.css">
     <link rel="stylesheet" href="css/style.css">
 
-	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+    <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-72x72-precomposed.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-114x114-precomposed.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-144x144-precomposed.png">
 </head>
 
 
