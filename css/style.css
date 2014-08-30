@@ -52,6 +52,9 @@ header {
     font-size: 3em;
     margin: 25% auto;
 }
+.error-msg {
+    min-height: 100vh;
+}
 /* @end */
 
 /* @group canvas */

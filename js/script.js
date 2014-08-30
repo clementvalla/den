@@ -211,6 +211,7 @@ function draw() {
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2, font_size);
 	}
 }
+// END Canvas Draw()
 
 function drawMultiline(src_ar, x, y, s) {
 	// Draw it across multiple lines
@@ -351,7 +352,10 @@ $(document).ready(function() {
     for (var j in random_string) random_string_count++;
 
     // Now let's set the Venn Diagram values to the URL params! Weee!
-    if (query_string_count >= 1 && window.location.search.length > 0) {
+    // First check to see if this is the save page
+    var savePage = $("body#save").length;
+
+    if (query_string_count >= 1 && window.location.search.length > 0 && savePage != 1) {
         $.each(query_string, function(key, value) {
             if (key == "left") {
                 value = cleanURLParam(value);
@@ -372,7 +376,7 @@ $(document).ready(function() {
                 colorVal = value;
             }
         });
-    } else {
+    } else if (savePage != 1) {
         // Create a random number based on the preset Vennz
         var number = Math.floor(Math.random() * random_string_count) + 1;
 
