@@ -1,3 +1,4 @@
+<?php $page_name = 'single' ?>
 <?php include 'includes/head.php';?>
 
 <?php 

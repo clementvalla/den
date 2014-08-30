@@ -325,6 +325,7 @@ FileETag None
 <IfModule mod_rewrite.c>
   Options +FollowSymlinks
   RewriteEngine On
+  RewriteRule ^index.php/?$1 /?$1 [L]
 </IfModule>
 
 
