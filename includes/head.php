@@ -24,8 +24,6 @@
     <link rel="apple-touch-startup-image" href="/startup-image.png">
 
     <meta name="apple-mobile-web-app-title" content="Venn Diagrams">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
 </head>
 
 
