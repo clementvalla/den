@@ -256,7 +256,10 @@ input {
             height: auto;
         }
         .menu .row input {
-            width: 100%;
+            width: 95%;
+            font-size: 1.25em;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
         }
             .menu .row label {
                 display: block;
