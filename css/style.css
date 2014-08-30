@@ -246,9 +246,6 @@ input {
     header {
         width: 100%;
     }
-    .library {
-        margin-left: 0;
-    }
     .diagram {
         padding-top: 10%;
         margin-top: 0;
