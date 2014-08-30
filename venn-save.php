@@ -41,7 +41,7 @@ if (!file_put_contents($pngFile, base64_decode($uri))){?>
 ?>
 	<?php 
 		//create the thumbnail
-		require_once 'includes/phpthumb/ThumbLib.inc.php';
+        require_once 'includes/phpthumb/ThumbLib.inc.php';
 		$thumb = PhpThumbFactory::create($pngFile);
         $thumb->adaptiveResize(550, 400);
         $thumb->save('diagrams_thumb/'.$pngFile);

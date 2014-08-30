@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container center">
     <div class="row">
-        <div id="diagram">
+        <div class="diagram">
             <img class="full-width" src="<?php echo $venn ?>" />
         </div>
     </div>

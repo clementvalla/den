@@ -30,7 +30,7 @@
 </head>
 
 
-<body <?php if ($page_name == 'save') { ?>id="save"<?php } ?> class="">
+<body <?php if ($page_name == 'save') { ?>id="save" class="static-diagram"<?php } ?>>
 
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 	<header class="container blur">
