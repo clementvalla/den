@@ -240,6 +240,7 @@ window.addEventListener('load', function() {
 
 $(document).ready(function() {
     // Fade out the loading wheel once we have it all
+    $("#js-pre-load svg").hide();
     $("#js-pre-load").fadeOut("slow");
 
     // Is this a touch device?

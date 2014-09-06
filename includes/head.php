@@ -8,23 +8,34 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>The Venn Diagram Generator</title>
-	<meta name="description" content="">
-    <meta name="author" content="">
+	<meta name="description" content="Make and share Venn Diagrams to help people understand your bad jokes.">
+    <meta name="author" content="Meghan, Clement, and Jason">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
+    <!-- Set the ol' viewport to allow pinch zooming, but prevent double tap zooming -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Meta data for Twitter Photo Card -->
+    <meta name="twitter:card" content="photo">
+    <meta name="twitter:site" content="@VennDiagramer">
+    <meta name="twitter:title" content="? + ? = Content via http://www.venndiagram.it/">
+    <meta name="twitter:image:src" content="http://parseshare.com/den/diagrams/Barack_Obama-1.png">
+    <meta name="twitter:image:width" content="1680">
+    <meta name="twitter:image:height" content="1120">
+    <meta name="twitter:domain" content="http://www.venndiagram.it">
 
+    <!-- Styles -->
 	<link rel="stylesheet" href="css/jquery-ui-1.8.23.custom.css">
     <link rel="stylesheet" href="css/basscss.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <!-- All the magic icons for the site -->
     <link rel="apple-touch-icon" href="apple-touch-icon-precomposed.png">
     <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-72x72-precomposed.png">
     <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-114x114-precomposed.png">
     <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-144x144-precomposed.png">
     <link rel="apple-touch-startup-image" href="/startup-image.png">
 
+    <!-- The name of the App as it will appear on an iPhone that adds it to their home screen -->
     <meta name="apple-mobile-web-app-title" content="Venn Diagrams">
 
 </head>
