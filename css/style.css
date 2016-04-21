@@ -59,7 +59,7 @@ header {
 
 /* @group canvas */
 .diagram {
-    margin-top: -50px;
+    margin-top: -40px;
 }
 .static-diagram img {
     width: 97.5%;
@@ -241,6 +241,9 @@ input {
 }
 /* @end */
 @media (max-width: 1000px) {
+    .diagram {
+        margin-top: 0;
+    }
     .menu-wrapper {
         position: inherit;
     }

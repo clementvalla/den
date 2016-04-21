@@ -44,8 +44,8 @@
 <body <?php if ($page_name == 'save') { ?>id="save" class="static-diagram"<?php } ?>>
 
 	<!--[if lt IE 8]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
-	<header class="container blur">
-        <h1 class="brand ml2 mt1 mobile-center"><a href="http://parseshare.com/den/">The Venn <br class="mobile-hide">Diagram <br class="mobile-hide">Generator</a></h1>
+	<header class="blur full-width">
+        <h1 class="brand ml2 mt1 center"><a href="http://parseshare.com/den/">The Venn Diagram Generator</a></h1>
         <a id="share" class="button button-box-black button-small ml2 mobile-hide">
             <svg class="icon icon-tweet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                 <path d="M2 4 C6 8 10 12 15 11 A6 6 0 0 1 22 4 A6 6 0 0 1 26 6 A8 8 0 0 0 31 4 A8 8 0 0 1 28 8 A8 8 0 0 0 32 7 A8 8 0 0 1 28 11 A18 18 0 0 1 10 30 A18 18 0 0 1 0 27 A12 12 0 0 0 8 24 A8 8 0 0 1 3 20 A8 8 0 0 0 6 19.5 A8 8 0 0 1 0 12 A8 8 0 0 0 3 13 A8 8 0 0 1 2 4"></path>
@@ -54,17 +54,7 @@
           Tweet
         </a>
         <br>
-        <a class="button button-box-black button-small mt2 ml2 mobile-hide" href="venn-library.php">
-Library</a>
-        <?php if ($page_name == 'index') { ?>
-            <br>
-            <a id="save" class="button button-box-black button-small mt2 ml2 mobile-hide">
-                <form action="venn-save.php" method="post" id="form" class="mobile-show mobile-hide"/>
-                    <input type="hidden" name="data" id="data" />
-                    <input type="hidden" name="title" id="title" />
-                    <input type="submit" value="Submit">
-                </form>
-                Save
-            </a>
-        <?php } ?>
+        <a id="save" class="button button-box-black button-small mt2 ml2 mobile-hide">
+            Add to library
+        </a>
 	</header>

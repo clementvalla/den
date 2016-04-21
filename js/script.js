@@ -43,7 +43,7 @@ var random_string = {
     "1": {
         "left":"Nobel Peace Prize Winner",
         "center":"Barack Obama",
-        "right":"Emmy Award Winner",
+        "right":"Grammy Award Winner",
         "spread": 50,
         "color": 0
     },
@@ -238,10 +238,50 @@ window.addEventListener('load', function() {
         new FastClick(document.body);
 }, false);
 
+/* JavaScript Component */
+ 
+function preloadImagesFromDirectory(dir) {
+     
+        if(!dir) return;
+         
+        function getJSON(URL,success){
+                 
+        // Create new function (within global namespace)
+        // (With unique name):
+            var uniqueID = 'json'+(+(new Date()));
+                window[uniqueID] = function(data){
+                    success && success(data);
+                };
+                                                                                 
+             // Append new SCRIPT element to DOM:
+             document.getElementsByTagName('body')[0].appendChild((function(){
+                 var script = document.createElement('script');
+                 script.type = 'text/javascript';
+                 script.src = URL.replace('callback=?','callback=' + uniqueID);
+                 return script;
+             })());
+        }
+
+        function preload(srcArray) {
+            for(var i = 0; i < srcArray.length; i++) {
+                (new Image()).src = srcArray[i];
+            }
+        }
+
+        // Get that JSON data:
+        getJSON('includes/scanImageDirectory.php?directory=' + encodeURIComponent(dir) + '&callback=?', function(data){
+            return data.images ? preload( data.images ) : false;
+            console.log("image data got it.");
+        });
+};
+
 $(document).ready(function() {
     // Fade out the loading wheel once we have it all
     $("#js-pre-load svg").hide();
     $("#js-pre-load").fadeOut("slow");
+
+    // Preload images
+    preloadImagesFromDirectory('diagrams_thumb/');
 
     // Is this a touch device?
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -305,14 +345,21 @@ $(document).ready(function() {
     // Bind the save button and submit form
 	$("#save").click(function() {
         //get the canvas
-        var imageData = document.getElementById("mcanvas").toDataURL();
+        var imageData = document.getElementById("mcanvas").toDataURL("image/png");
+        var postData = "canvasData="+imageData;
+
+        var ajax = new XMLHttpRequest();
+        ajax.open("POST",'venn-save.php', true);
+        ajax.setRequestHeader('Content-Type', 'canvas/upload');
+        
         $("#data").val(imageData);
 
         //prepare the title
-        $("#title").val(inputCenter.val().replace(" ", "_"));
+        //$("#title").val(inputCenter.val().replace(" ", "_"));
 
         //submit
-        $("#form").trigger('submit');
+        //$("#form").trigger('submit');
+        ajax.send(postData);
 	});
 
     var QueryString = function () {

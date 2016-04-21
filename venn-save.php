@@ -13,9 +13,10 @@ if (!function_exists('file_put_contents')) {
         }
     }
 }
-
-$data = $_POST['data'];
-$title = $_POST['title'];
+$data = $GLOBALS['HTTP_RAW_POST_DATA'];
+//$data = $_POST['data'];
+$title = 'venn-diagram';
+//$title = $_POST['title'];
 $count = 0;
 
 //removing the "data:image/png;base64," part

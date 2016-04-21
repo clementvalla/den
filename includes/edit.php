@@ -1,10 +1,7 @@
-<div id="js-overlay" class="venn-menu-overlay">
+<div id="js-overlay" class="venn-menu-overlay mobile-show">
     <div class="header mb2 py1 px2 mobile-table border-box">
         <div class="mobile-table-cell">
             <h3 class="m0">Edit Diagram</h3>
-        </div>
-        <div class="mobile-table-cell right-align">
-            <a id="js-close" class="button button-gray" href="#">Done</a>
         </div>
     </div>
     <div class="row">
@@ -48,5 +45,10 @@
             <li id="select-7" class="color-selector mobile-hide"><span class="a"></span><span class="b"></span></li>
             <li id="select-8" class="color-selector mobile-hide"><span class="a"></span><span class="b"></span></li>
         </ul>
+    </div>
+    <div class="row">
+        <div class="mobile-col full-width mobile-show py1 mt3">
+            <a id="js-close" class="button button-gray full-width border-box center" href="#">Done</a>
+        </div>
     </div>
 </div>
