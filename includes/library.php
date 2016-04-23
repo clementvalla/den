@@ -21,21 +21,21 @@ if ( $handle = opendir( $dir ) ) {
 	$file_count = count($files);
 
 	// loop through the directory
-    echo '<div class="container library oh"><div class="row mt3">';
+    echo '<div id="js-library" class="container library clearfix">';
     foreach($files as $file) {
-        if ($count == 0) {
-            echo '<div class="col col-6 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
-        } else if ($count == $file_count - 1) {
-            echo '</div>';
-        } else if ($count % 2 == 0) {
-            echo '</div><div class="row">';
-            echo '<div class="col col-6 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
-        } else {
-            echo '<div class="col col-6 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
-        }
+        //if ($count == 0) {
+            echo '<div class="col col-4 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
+        //} else if ($count == $file_count - 1) {
+            //echo '</div>';
+        //} else if ($count % 2 == 0) {
+            //echo '</div><div class="row">';
+            //echo '<div class="col col-6 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
+        //} else {
+            //echo '<div class="col col-6 center thumbnail"><a class="block" href="venn-single.php?venn=diagrams/'.$file.'"><img src="'.$dir.'/'.$file.'" /></a></div>';
+        //}
         $count++;
 	}
-	echo '</div></div>';
+	echo '</div>';
 }
 else {
 	echo "Directory does not exist!";

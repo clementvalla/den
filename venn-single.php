@@ -5,8 +5,10 @@
 //get the venn diagram from the query
 $venn = $_GET["venn"];
 ?>
-<div id="content" class="diagram">
-       <?php include 'includes/venn-single-display.php'; ?>
+<div id="content">
+    <div class="container diagram blur">
+        <img class="full-width" src="<?php echo $venn ?>" />
+    </div>
 </div>
 
 <?php include 'includes/foot.php';?>

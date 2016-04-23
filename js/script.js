@@ -74,7 +74,6 @@ var random_string = {
 function setup() {
 	// Set the canvas
 	canvas = document.getElementById("mcanvas");
-    console.log(canvas);
     if (canvas != null) {
         ctx = canvas.getContext("2d");
         // Set the interval
@@ -110,6 +109,12 @@ function draw() {
     } else {
         spread = parseInt(inputSpread.val());
     }
+
+    // Make the background white
+    ctx.beginPath();
+    ctx.rect(0,0,canvas.width,canvas.height);
+    ctx.fillStyle = "white";
+    ctx.fill();
 
 	// Keep the spread within a boundary of 100
 	spread = (spread > 98) ? 98 : spread;
@@ -240,48 +245,10 @@ window.addEventListener('load', function() {
 
 /* JavaScript Component */
  
-function preloadImagesFromDirectory(dir) {
-     
-        if(!dir) return;
-         
-        function getJSON(URL,success){
-                 
-        // Create new function (within global namespace)
-        // (With unique name):
-            var uniqueID = 'json'+(+(new Date()));
-                window[uniqueID] = function(data){
-                    success && success(data);
-                };
-                                                                                 
-             // Append new SCRIPT element to DOM:
-             document.getElementsByTagName('body')[0].appendChild((function(){
-                 var script = document.createElement('script');
-                 script.type = 'text/javascript';
-                 script.src = URL.replace('callback=?','callback=' + uniqueID);
-                 return script;
-             })());
-        }
-
-        function preload(srcArray) {
-            for(var i = 0; i < srcArray.length; i++) {
-                (new Image()).src = srcArray[i];
-            }
-        }
-
-        // Get that JSON data:
-        getJSON('includes/scanImageDirectory.php?directory=' + encodeURIComponent(dir) + '&callback=?', function(data){
-            return data.images ? preload( data.images ) : false;
-            console.log("image data got it.");
-        });
-};
-
 $(document).ready(function() {
     // Fade out the loading wheel once we have it all
     $("#js-pre-load svg").hide();
     $("#js-pre-load").fadeOut("slow");
-
-    // Preload images
-    preloadImagesFromDirectory('diagrams_thumb/');
 
     // Is this a touch device?
     var supportsTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints;
@@ -349,17 +316,30 @@ $(document).ready(function() {
         var postData = "canvasData="+imageData;
 
         var ajax = new XMLHttpRequest();
+
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                // Add the new thumbnail image to the library by taking the number from the newest thumbnail. This could be more reliable with a list of files. 
+                var fileNum = parseInt($(".thumbnail").find("img").attr("src").match(/\d+/g))+1;
+                var newDiagram = "<div id='js-new-diagram' class='col col-4 center hide thumbnail'><a class='block' href='venn-single.php?venn=diagrams/venn-diagram-"+fileNum+"'><img src='diagrams_thumb/diagrams/venn-diagram-"+fileNum+".png' /></a></div>";
+                $(newDiagram).hide().prependTo("#js-library").fadeIn("slow");
+            }
+        };
+
         ajax.open("POST",'venn-save.php', true);
         ajax.setRequestHeader('Content-Type', 'canvas/upload');
         
-        $("#data").val(imageData);
+        ajax.send(postData);
+
+        
+
+        //$("#data").val(imageData);
 
         //prepare the title
         //$("#title").val(inputCenter.val().replace(" ", "_"));
 
         //submit
         //$("#form").trigger('submit');
-        ajax.send(postData);
 	});
 
     var QueryString = function () {

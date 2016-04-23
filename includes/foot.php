@@ -1,7 +1,7 @@
     <footer>
         <!-- Locally load jQuery files -->
         <script src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="js/libs/jquery-2.2.3.min.js"></script>
         <script type="text/javascript" src="js/libs/jquery-ui.min.js"></script>
         <script type='application/javascript' src='js/libs/fastclick.js'></script>
         <script src="js/script.js"></script>

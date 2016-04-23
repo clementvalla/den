@@ -1,4 +1,4 @@
-<div id="js-overlay" class="venn-menu-overlay mobile-show">
+<div id="js-overlay" class="venn-menu-overlay obile-show">
     <div class="header mb2 py1 px2 mobile-table border-box">
         <div class="mobile-table-cell">
             <h3 class="m0">Edit Diagram</h3>
