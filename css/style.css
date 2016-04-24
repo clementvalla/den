@@ -40,7 +40,7 @@ header {
 .loading .icon-loading {
     display: inline;
 }
-.loading .icon-tweet {
+.loading .icon-tweet, .loading .icon-save {
     display: none
 }
 .pre-load {
