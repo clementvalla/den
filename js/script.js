@@ -25,7 +25,7 @@ var login = "jsnhff";
 var api_key = "R_0aeb1b41a33c37b25810b26804bd35df";
 var long_url = "http://www.venndiagram.it";
 var shortURL = "";
-var shareButtons = $("#share, #mobile-share");
+var shareButtons = $("#js-share, #mobile-share");
 // Clean up the inputs to just make them an Array?
 var inputs = $("#input-left, #input-center, #input-right, #spread-slider, .color-selector");
 var inputLeft = $("#input-left");
@@ -127,6 +127,9 @@ function draw() {
 	ctx.closePath();
 	ctx.fillStyle = color1;
 	ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
 
 	// Circle 2
     ctx.beginPath();
@@ -134,28 +137,36 @@ function draw() {
 	ctx.closePath();
 	ctx.fillStyle = color2;
 	ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'black';
+    ctx.stroke();
 
 	// Intersection
 	ctx.fillStyle = color3;
-	ctx.strokeStyle = color3;
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'black';
 	var angle = Math.acos(offset / radius);
 
-	ctx.beginPath();
+	// Intersection: Right side fill
+    ctx.beginPath();
 	ctx.arc(canvas.width / 2 - offset, canvas.height / 2, radius, -angle, angle, false);
 	ctx.closePath();
 	ctx.fill();
+
+	// Intersection: Right side stroke
 	ctx.beginPath();
 	ctx.arc(canvas.width / 2 - offset, canvas.height / 2, radius, -angle, angle, false);
-	ctx.closePath();
 	ctx.stroke();
 
-	ctx.beginPath();
+	// Intersection: Left side fill
+    ctx.beginPath();
 	ctx.arc(canvas.width / 2 + offset, canvas.height / 2, radius, -angle + Math.PI, angle + Math.PI, false);
 	ctx.closePath();
 	ctx.fill();
-	ctx.beginPath();
+	
+    // Intersection: Left side stroke
+    ctx.beginPath();
 	ctx.arc(canvas.width / 2 + offset, canvas.height / 2, radius, -angle + Math.PI, angle + Math.PI, false);
-	ctx.closePath();
 	ctx.stroke();
 
 	// Text style
@@ -195,24 +206,24 @@ function draw() {
 	// Split the text
 	var src_ar = src3.split(" ");
 	var textw = measureWidestText(src_ar);
+
 	// If the overlap is too small, the text should move up and an arrow should be drawn
 	if (textw > remainder + 30) {
 		// Draw the multiline text
 		drawMultiline(src_ar, canvas.width / 2, canvas.height / 2 - radius + font_size, font_size);
-		// Draw the line
+		
+        // Draw the line
 		ctx.beginPath();
 		ctx.moveTo(canvas.width / 2, canvas.height / 2 - radius + font_size * src_ar.length + 10);
 		ctx.lineTo(canvas.width / 2, canvas.height / 2 - 3);
 		ctx.closePath();
 		ctx.stroke();
-		// Draw the arrow head
-		var awid = 10;
-		var ahei = 10;
+		
+        // Draw the dot
+		var awid = 5;
+		var ahei = 5;
 		ctx.beginPath();
-		ctx.moveTo(canvas.width / 2 - awid / 2, canvas.height / 2 - ahei);
-		ctx.lineTo(canvas.width / 2 + awid / 2, canvas.height / 2 - ahei);
-		ctx.lineTo(canvas.width / 2, canvas.height / 2);
-		ctx.closePath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, awid,0,2*Math.PI);
 		ctx.fill();
 
 	} else {
@@ -310,10 +321,13 @@ $(document).ready(function() {
     });
 
     // Bind the save button and submit form
-	$("#save").click(function() {
+	$("#js-save").click(function() {
         //get the canvas
         var imageData = document.getElementById("mcanvas").toDataURL("image/png");
         var postData = "canvasData="+imageData;
+        var button = $(this);
+        
+        button.addClass("loading");
 
         var ajax = new XMLHttpRequest();
 
@@ -323,6 +337,7 @@ $(document).ready(function() {
                 var fileNum = parseInt($(".thumbnail").find("img").attr("src").match(/\d+/g))+1;
                 var newDiagram = "<div id='js-new-diagram' class='col col-4 center hide thumbnail'><a class='block' href='venn-single.php?venn=diagrams/venn-diagram-"+fileNum+"'><img src='diagrams_thumb/diagrams/venn-diagram-"+fileNum+".png' /></a></div>";
                 $(newDiagram).hide().prependTo("#js-library").fadeIn("slow");
+                button.removeClass("loading");
             }
         };
 
